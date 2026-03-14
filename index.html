@@ -3,286 +3,63 @@
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>IAI.ONE — Infrastructure for Human Intelligence</title>
+<title>IAI.ONE — Human Intelligence Infrastructure</title>
 
-<meta name="description" content="IAI.ONE là hạ tầng tri thức và công cụ giúp con người xây dựng cộng đồng, ra quyết định, và phát triển một nền văn minh bền vững trong thời đại AI.">
+<meta name="description" content="IAI.ONE là hạ tầng trí tuệ con người cho thời đại trí tuệ nhân tạo. Một hệ sinh thái công cụ, tri thức và cộng đồng giúp cá nhân và xã hội phát triển bền vững.">
+
+<link rel="stylesheet" href="style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-/* GLOBAL */
-
-body{
-margin:0;
-background:#0b0f14;
-color:#e6edf3;
-font-family:Inter,system-ui;
-line-height:1.6;
-}
-
-h1,h2,h3{
-font-weight:500;
-}
-
-a{
-color:#e6edf3;
-text-decoration:none;
-}
-
-section{
-padding:120px 40px;
-max-width:1200px;
-margin:auto;
-}
-
-/* HEADER */
-
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:24px 40px;
-border-bottom:1px solid rgba(255,255,255,.06);
-position:sticky;
-top:0;
-background:#0b0f14;
-z-index:10;
-}
-
-.logo{
-font-weight:600;
-letter-spacing:2px;
-}
-
-nav a{
-margin-left:24px;
-opacity:.8;
-}
-
-nav a:hover{
-opacity:1;
-}
-
-/* HERO */
-
-.hero{
-text-align:center;
-padding:160px 20px;
-}
-
-.hero h1{
-font-size:64px;
-margin-bottom:24px;
-}
-
-.hero p{
-max-width:640px;
-margin:auto;
-opacity:.7;
-font-size:20px;
-}
-
-/* BUTTON */
-
-.btn{
-display:inline-block;
-margin-top:40px;
-padding:14px 28px;
-border:1px solid rgba(255,255,255,.2);
-border-radius:6px;
-transition:.3s;
-}
-
-.btn:hover{
-background:#121821;
-}
-
-/* GRID */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:24px;
-margin-top:40px;
-}
-
-/* CARD */
-
-.card{
-background:#121821;
-padding:30px;
-border-radius:8px;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-4px);
-}
-
-/* ECOSYSTEM MAP */
-
-.map{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:24px;
-margin-top:60px;
-}
-
-.node{
-background:#121821;
-padding:24px;
-text-align:center;
-border-radius:8px;
-cursor:pointer;
-transition:.3s;
-}
-
-.node:hover{
-transform:scale(1.05);
-background:#1b2533;
-}
-
-/* STACK DIAGRAM */
-
-.stack{
-margin-top:60px;
-display:grid;
-gap:10px;
-}
-
-.stack div{
-background:#121821;
-padding:20px;
-border-radius:6px;
-}
-
-/* CIVILIZATION OS */
-
-.os{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:20px;
-margin-top:60px;
-}
-
-.os div{
-background:#121821;
-padding:30px;
-border-radius:8px;
-text-align:center;
-}
-
-/* APPS */
-
-.apps{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-margin-top:60px;
-}
-
-.apps a{
-display:block;
-background:#121821;
-padding:28px;
-border-radius:8px;
-text-align:center;
-transition:.3s;
-}
-
-.apps a:hover{
-transform:scale(1.05);
-background:#1b2533;
-}
-
-/* FOOTER */
-
-footer{
-border-top:1px solid rgba(255,255,255,.06);
-padding:60px 40px;
-text-align:center;
-opacity:.7;
-}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
 
+<header class="site-header">
 
-<header>
+<div class="header-inner">
 
 <div class="logo">
 IAI.ONE
 </div>
 
-<nav>
+<nav class="main-nav">
 
-<a href="/">Home</a>
-<a href="/about.html">About</a>
+<a href="#ecosystem">Ecosystem</a>
+<a href="#architecture">AGI</a>
+<a href="#civilization">Civilization</a>
+<a href="#apps">Platforms</a>
+<a href="#philosophy">Philosophy</a>
+<a href="about.html">About</a>
 
 </nav>
+
+</div>
 
 </header>
 
 
+
 <section class="hero">
 
+<div class="hero-inner">
+
 <h1>
-Infrastructure for Human Intelligence
+Human Intelligence Infrastructure
 </h1>
 
 <p>
-
-Một hệ sinh thái tri thức, công cụ và cộng đồng được xây dựng để hỗ trợ con người
-trong thời đại trí tuệ nhân tạo.
-
+Một hệ sinh thái công cụ, tri thức và cộng đồng được xây dựng để giúp con người phát triển trong thời đại trí tuệ nhân tạo.
 </p>
 
-<a class="btn" href="#ecosystem">
-Explore Ecosystem
-</a>
+<div class="hero-buttons">
 
-</section>
+<a class="btn-primary" href="#ecosystem">Khám phá hệ sinh thái</a>
+<a class="btn-secondary" href="#apps">Các nền tảng</a>
 
-
-
-<section id="principles">
-
-<h2>Core Principles</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Truth over Noise</h3>
-<p>
-Sự thật quan trọng hơn sự ồn ào.
-</p>
-</div>
-
-<div class="card">
-<h3>Contribution over Speculation</h3>
-<p>
-Giá trị đến từ đóng góp thực sự.
-</p>
-</div>
-
-<div class="card">
-<h3>Privacy First</h3>
-<p>
-Dữ liệu cá nhân thuộc về chính người dùng.
-</p>
-</div>
-
-<div class="card">
-<h3>Long Term Thinking</h3>
-<p>
-Xây dựng hệ thống cho 30 đến 100 năm.
-</p>
 </div>
 
 </div>
@@ -291,39 +68,115 @@ Xây dựng hệ thống cho 30 đến 100 năm.
 
 
 
-<section id="ecosystem">
+<section id="ecosystem" class="section ecosystem">
+
+<div class="section-header">
 
 <h2>IAI Ecosystem</h2>
 
 <p>
-Các hệ thống và ứng dụng được xây dựng trong hệ sinh thái IAI.
+Hệ sinh thái IAI.ONE được thiết kế như một hạ tầng trí tuệ toàn diện cho con người, kết nối tri thức, công cụ AI và cộng đồng.
 </p>
 
-<div class="map" id="ecosystem-map"></div>
+</div>
+
+<div class="ecosystem-map">
+
+<div class="node center">
+
+<span>IAI</span>
+
+</div>
+
+<div class="node node1">
+
+<span>Human Intelligence</span>
+
+</div>
+
+<div class="node node2">
+
+<span>AGI Tools</span>
+
+</div>
+
+<div class="node node3">
+
+<span>Knowledge Systems</span>
+
+</div>
+
+<div class="node node4">
+
+<span>Community Networks</span>
+
+</div>
+
+<div class="node node5">
+
+<span>Collaborative Economy</span>
+
+</div>
+
+</div>
 
 </section>
 
 
 
-<section>
+<section id="architecture" class="section architecture">
+
+<div class="section-header">
 
 <h2>AGI Architecture</h2>
 
 <p>
-Kiến trúc hệ thống trí tuệ tổng hợp của hệ sinh thái.
+IAI.ONE phát triển các công cụ AGI hỗ trợ con người trong việc ra quyết định, học tập và xây dựng hệ thống tri thức.
 </p>
 
-<div class="stack">
+</div>
 
-<div>Human Intelligence Layer</div>
+<div class="architecture-grid">
 
-<div>Life Intelligence Engine</div>
+<div class="arch-card">
 
-<div>Knowledge Graph</div>
+<h3>Data Layer</h3>
 
-<div>Decision Systems</div>
+<p>
+Thu thập dữ liệu hành vi, tri thức và bối cảnh xã hội để xây dựng các mô hình phân tích.
+</p>
 
-<div>Civilization Infrastructure</div>
+</div>
+
+<div class="arch-card">
+
+<h3>Model Layer</h3>
+
+<p>
+Các mô hình AI và AGI hỗ trợ phân tích, dự đoán và tạo ra tri thức mới.
+</p>
+
+</div>
+
+<div class="arch-card">
+
+<h3>Automation Layer</h3>
+
+<p>
+Các hệ thống tự động hóa workflow và quy trình nghiên cứu.
+</p>
+
+</div>
+
+<div class="arch-card">
+
+<h3>Interface Layer</h3>
+
+<p>
+Các nền tảng web và ứng dụng giúp con người tương tác với hệ thống.
+</p>
+
+</div>
 
 </div>
 
@@ -331,21 +184,43 @@ Kiến trúc hệ thống trí tuệ tổng hợp của hệ sinh thái.
 
 
 
-<section>
+<section id="civilization" class="section civilization">
+
+<div class="section-header">
 
 <h2>Civilization Operating System</h2>
 
 <p>
-Mô hình vận hành xã hội dựa trên tri thức và cộng đồng.
+Một mô hình vận hành xã hội dựa trên tri thức, cộng đồng và hợp tác thay vì đầu cơ.
 </p>
 
-<div class="os">
+</div>
 
-<div>Identity</div>
-<div>Knowledge</div>
-<div>Economy</div>
-<div>Governance</div>
-<div>Community</div>
+<div class="civilization-diagram">
+
+<div class="civil-node">
+
+Individuals
+
+</div>
+
+<div class="civil-node">
+
+Communities
+
+</div>
+
+<div class="civil-node">
+
+Knowledge Networks
+
+</div>
+
+<div class="civil-node">
+
+Collaborative Economy
+
+</div>
 
 </div>
 
@@ -353,108 +228,134 @@ Mô hình vận hành xã hội dựa trên tri thức và cộng đồng.
 
 
 
-<section>
+<section id="apps" class="section apps">
 
-<h2>Applications</h2>
+<div class="section-header">
+
+<h2>Platforms</h2>
 
 <p>
-Các ứng dụng trong hệ sinh thái IAI.
+Các nền tảng trong hệ sinh thái IAI.ONE hỗ trợ con người học tập, ra quyết định và xây dựng cộng đồng.
 </p>
 
-<div class="apps" id="app-grid"></div>
+</div>
+
+<div class="app-grid">
+
+<a class="app-card" href="https://flow.iai.one">
+
+<h3>IAI Flow</h3>
+
+<p>
+Workflow automation và AGI orchestration.
+</p>
+
+</a>
+
+<a class="app-card" href="https://lifecode.iai.one">
+
+<h3>LifeCode</h3>
+
+<p>
+Hệ thống phân tích cấu trúc đời người và chu kỳ thời gian.
+</p>
+
+</a>
+
+<a class="app-card" href="#">
+
+<h3>Knowledge</h3>
+
+<p>
+Hạ tầng tri thức mở.
+</p>
+
+</a>
+
+<a class="app-card" href="#">
+
+<h3>Research</h3>
+
+<p>
+Công cụ nghiên cứu và phân tích tri thức.
+</p>
+
+</a>
+
+<a class="app-card" href="#">
+
+<h3>Community</h3>
+
+<p>
+Mạng lưới cộng đồng toàn cầu.
+</p>
+
+</a>
+
+<a class="app-card" href="#">
+
+<h3>Projects</h3>
+
+<p>
+Các dự án và sáng kiến trong hệ sinh thái.
+</p>
+
+</a>
+
+</div>
 
 </section>
 
 
 
-<footer>
+<section id="philosophy" class="section philosophy">
+
+<div class="section-header">
+
+<h2>Philosophy</h2>
+
+</div>
+
+<div class="philosophy-content">
 
 <p>
+IAI.ONE được xây dựng trên niềm tin rằng trí tuệ con người và trí tuệ nhân tạo có thể hợp tác để tạo ra một nền văn minh bền vững.
+</p>
+
+<p>
+Hệ thống này không nhằm thay thế con người mà nhằm tăng cường khả năng nhận thức và ra quyết định của mỗi cá nhân.
+</p>
+
+<p>
+Mục tiêu cuối cùng là xây dựng một nền kinh tế và cộng đồng dựa trên tri thức, hợp tác và phát triển lâu dài.
+</p>
+
+</div>
+
+</section>
+
+
+
+<footer class="site-footer">
+
+<div class="footer-inner">
+
+<div class="footer-logo">
 IAI.ONE
-</p>
+</div>
 
 <p>
-Infrastructure for Human Intelligence
+Human Intelligence Infrastructure
 </p>
+
+</div>
 
 </footer>
 
 
 
-<script>
-
-const apps=[
-
-{name:"LifeCode",url:"https://lifecode.iai.one"},
-{name:"IAI Flow",url:"https://flow.iai.one"},
-{name:"IAI Signal",url:"https://signal.iai.one"},
-{name:"IAI Proof",url:"https://proof.iai.one"},
-{name:"IAI Community",url:"https://community.iai.one"},
-{name:"IAI Lab",url:"https://lab.iai.one"},
-{name:"Knowledge",url:"https://knowledge.iai.one"}
-
-]
-
-
-const map=document.getElementById("ecosystem-map")
-
-apps.forEach(app=>{
-
-const el=document.createElement("div")
-
-el.className="node"
-el.innerText=app.name
-el.onclick=()=>location.href=app.url
-
-map.appendChild(el)
-
-})
-
-
-
-const grid=document.getElementById("app-grid")
-
-apps.forEach(app=>{
-
-const el=document.createElement("a")
-
-el.href=app.url
-el.innerText=app.name
-
-grid.appendChild(el)
-
-})
-
-
-
-const sections=document.querySelectorAll("section")
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-entry.target.style.opacity=1
-entry.target.style.transform="translateY(0)"
-}
-
-})
-
-})
-
-sections.forEach(sec=>{
-
-sec.style.opacity=0
-sec.style.transform="translateY(40px)"
-sec.style.transition="all .8s"
-
-observer.observe(sec)
-
-})
-
-</script>
-
-
+<script src="app.js"></script>
 
 </body>
+
 </html>
