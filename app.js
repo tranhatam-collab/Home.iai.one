@@ -1,444 +1,510 @@
-(function () {
-  "use strict";
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#060816" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="format-detection" content="telephone=no" />
 
-  const STORAGE_KEY = "home_iai_lang";
+  <title>HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure</title>
+  <meta
+    name="description"
+    content="HOME.IAI.ONE là system portal trung tâm của toàn bộ hệ IAI: nơi kết nối Charter, Ecosystem, Community và Infrastructure thành một bản đồ rõ ràng, có trách nhiệm và có thể đi vào đúng cửa."
+  />
+  <meta
+    name="keywords"
+    content="IAI.ONE, HOME.IAI.ONE, system portal, charter, ecosystem, community, infrastructure, AI workflow, Flow, AGI portal"
+  />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="https://home.iai.one/" />
 
-  const i18n = {
-    vi: {
-      heroEyebrow: "SYSTEM PORTAL",
-      heroTitle: "Cổng điều hướng trung tâm cho toàn bộ hệ IAI.",
-      heroLead:
-        "HOME.IAI.ONE không thay thế Charter, không vận hành ecosystem và không đóng vai trò platform. Đây là bản đồ hệ thống giúp người dùng nhìn thấy rõ Charter, Ecosystem, Community và Infrastructure của IAI trước khi đi vào chi tiết.",
-      heroPrimary: "Hiểu cấu trúc hệ",
-      heroSecondary: "Đọc Charter",
-      metric1: "Lớp hệ thống cốt lõi",
-      metric2: "Vai trò domain trung tâm",
-      metric3: "Đường đi vào hệ",
-      statusLabel1: "Root",
-      statusLabel2: "Primary Link",
-      statusLabel3: "Flagship Platform",
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IAI.ONE" />
+  <meta property="og:title" content="HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure" />
+  <meta
+    property="og:description"
+    content="Portal trung tâm giúp người dùng hiểu IAI Charter, Ecosystem, Community và Infrastructure theo đúng cấu trúc toàn hệ."
+  />
+  <meta property="og:url" content="https://home.iai.one/" />
+  <meta property="og:image" content="https://home.iai.one/assets/og-home.jpg" />
+  <meta property="og:locale" content="vi_VN" />
 
-      whyEyebrow: "WHY THIS SYSTEM EXISTS",
-      whyTitle: "Vì con người cần một cách nhìn có cấu trúc trước khi tham gia bất kỳ hệ nào",
-      whyLead:
-        "Trong thời đại bất ổn, AI tăng tốc và niềm tin xã hội phân mảnh, việc thiếu ranh giới, thiếu định nghĩa và thiếu bản đồ hệ thống khiến người dùng dễ hiểu sai mọi thứ. HOME tồn tại để làm rõ cấu trúc trước khi mời ai đó bước vào.",
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure" />
+  <meta
+    name="twitter:description"
+    content="Portal trung tâm giúp người dùng nhìn thấy toàn bộ cấu trúc của hệ IAI và đi vào đúng lớp hệ thống."
+  />
+  <meta name="twitter:image" content="https://home.iai.one/assets/og-home.jpg" />
 
-      layersEyebrow: "THE 4 LAYERS OF IAI",
-      layersTitle: "Toàn hệ IAI chỉ nên được hiểu đúng khi nhìn theo từng lớp",
-      layersLead:
-        "Nếu trộn Charter, Ecosystem, Community và Infrastructure thành một khối, toàn bộ hệ sẽ bị hiểu sai. HOME phải làm rõ ranh giới giữa các lớp này.",
-      layer1Title: "Charter Layer",
-      layer1Text:
-        "IAI.ONE giữ nguyên tắc, ranh giới, ngôn ngữ chung và chuẩn minh bạch. Đây là tầng gốc.",
-      layer2Title: "Portal Layer",
-      layer2Text:
-        "HOME.IAI.ONE là nơi nhìn thấy toàn hệ, hiểu toàn hệ và đi vào đúng cửa.",
-      layer3Title: "Infrastructure Layer",
-      layer3Text:
-        "Các platform như Flow tồn tại để phục vụ vận hành, automation, workflow và hạ tầng kỹ thuật.",
-      layer4Title: "Ecosystem Layer",
-      layer4Text:
-        "Đây là nơi các ecosystem, community groups và local nodes vận hành trong thực tế.",
+  <link rel="stylesheet" href="./style.css" />
+  <script defer src="./app.js"></script>
 
-      pathsEyebrow: "ENTRY PATHS",
-      pathsTitle: "Mỗi người nên vào hệ theo đúng vai trò của mình",
-      pathsLead:
-        "HOME không chỉ hiển thị link. Nó phải phân luồng để người xem không đi sai cửa ngay từ đầu.",
-      path1Title: "Observer",
-      path1Text:
-        "Người mới cần hiểu hệ trước, không cam kết, không bị kéo vào sớm.",
-      path2Title: "Participant",
-      path2Text:
-        "Người muốn tham gia cộng đồng cần hiểu Participation, Community và Ecosystem.",
-      path3Title: "Builder",
-      path3Text:
-        "Người xây hệ cần hiểu Charter, Boundaries và cách các lớp liên kết với nhau.",
-      path4Title: "Developer",
-      path4Text:
-        "Người phát triển công nghệ nên đi vào Flow như lớp platform hạ tầng, không nhầm nó là Charter.",
-      path5Title: "Partner",
-      path5Text:
-        "Đối tác cần thấy rõ ranh giới giữa protocol, ecosystem và các platform chuyên biệt.",
-
-      platformsEyebrow: "CORE PLATFORMS",
-      platformsTitle: "Các platform không thay thế Charter. Chúng phục vụ hệ",
-      platformsLead:
-        "Đây là các lớp hạ tầng hoặc bề mặt công cụ đang giúp hệ hiển thị, tổ chức hoặc vận hành rõ ràng hơn.",
-      flowCardText:
-        "Nền tảng orchestration cho AI workflows, agents, runtime và data pipelines ở production scale.",
-      iaiCardText:
-        "Charter site công bố bản chất, nguyên tắc, ranh giới và cấu trúc của hệ IAI.",
-      homeCardText:
-        "System portal giúp người dùng nhìn toàn cảnh hệ và đi vào đúng lớp phù hợp.",
-
-      ecosystemEyebrow: "ECOSYSTEM MAP",
-      ecosystemTitle:
-        "Bản đồ tổng thể giữa Charter, Portal, Platform và Community",
-      ecosystemLead:
-        "Đây không phải sơ đồ ảo. Đây là cách toàn hệ nên được hiểu để tránh mọi nhầm lẫn về vai trò.",
-      ecosystemCenter: "Charter, Portal, Community and Infrastructure",
-
-      boundariesEyebrow: "BOUNDARIES",
-      boundariesTitle: "Một hệ đúng phải dám nói rõ mình không phải gì",
-      boundariesLead:
-        "HOME phải nhắc lại ranh giới cốt lõi để người dùng không đọc sai bản chất của hệ.",
-      boundary1Title: "Not a Financial System",
-      boundary1Text:
-        "IAI không phải hệ tài chính, không phải nền tảng đầu tư và không hứa hẹn lợi nhuận.",
-      boundary2Title: "Not an Operator of Projects",
-      boundary2Text:
-        "IAI không trực tiếp vận hành dự án, không quản lý con người và không giữ tài sản thay cho ecosystem.",
-      boundary3Title: "Not a Belief System",
-      boundary3Text:
-        "IAI không phải hệ niềm tin, không phải phong trào và không thay thế trách nhiệm cá nhân.",
-      boundary4Title: "Understanding Before Participation",
-      boundary4Text:
-        "Mọi người nên hiểu cấu trúc hệ trước khi nghĩ đến tham gia, xây dựng hay tích hợp.",
-      boundary5Title: "Clear Roles Across Layers",
-      boundary5Text:
-        "Charter là Charter. Portal là Portal. Platform là Platform. Ecosystem là Ecosystem.",
-      boundary6Title: "Responsibility Over Hype",
-      boundary6Text:
-        "Hệ được giữ bằng ranh giới, trách nhiệm và tính bền vững, không phải bằng hưng phấn ngắn hạn.",
-
-      ctaEyebrow: "NEXT ACTION",
-      ctaTitle: "Hiểu đúng hệ trước. Sau đó mới đi vào đúng lớp.",
-      ctaText:
-        "Nếu cần gốc định nghĩa, đọc IAI.ONE. Nếu cần bản đồ hệ, dùng Home. Nếu cần platform orchestration, mở Flow.",
-
-      footerLead:
-        "HOME.IAI.ONE là portal trung tâm của toàn bộ hệ IAI, nơi Charter, Ecosystem, Community và Infrastructure được nhìn thấy như một cấu trúc rõ ràng thay vì một tập hợp mơ hồ.",
-      footerMeta: "System Portal for Responsible Co-Existence"
-    },
-
-    en: {
-      heroEyebrow: "SYSTEM PORTAL",
-      heroTitle: "The central navigation gateway for the full IAI system.",
-      heroLead:
-        "HOME.IAI.ONE does not replace the Charter, does not operate the ecosystem, and is not itself a platform. It is a system map that helps people clearly see the Charter, Ecosystem, Community, and Infrastructure of IAI before entering details.",
-      heroPrimary: "Understand the system",
-      heroSecondary: "Read the Charter",
-      metric1: "Core system layers",
-      metric2: "Central domain roles",
-      metric3: "Entry paths",
-      statusLabel1: "Root",
-      statusLabel2: "Primary Link",
-      statusLabel3: "Flagship Platform",
-
-      whyEyebrow: "WHY THIS SYSTEM EXISTS",
-      whyTitle:
-        "Because people need a structured view before entering any serious system",
-      whyLead:
-        "In an era of instability, accelerating AI, and fragmented trust, the absence of boundaries, definitions, and system maps makes everything easy to misunderstand. HOME exists to clarify structure before anyone steps in.",
-
-      layersEyebrow: "THE 4 LAYERS OF IAI",
-      layersTitle: "The IAI system should only be understood correctly in layers",
-      layersLead:
-        "If Charter, Ecosystem, Community, and Infrastructure are mixed into one vague block, the whole system will be misunderstood. HOME exists to make the boundaries between those layers visible.",
-      layer1Title: "Charter Layer",
-      layer1Text:
-        "IAI.ONE holds principles, boundaries, shared language, and transparency standards. This is the root layer.",
-      layer2Title: "Portal Layer",
-      layer2Text:
-        "HOME.IAI.ONE is where the whole system can be seen, understood, and entered correctly.",
-      layer3Title: "Infrastructure Layer",
-      layer3Text:
-        "Platforms such as Flow exist to support operations, automation, workflows, and technical infrastructure.",
-      layer4Title: "Ecosystem Layer",
-      layer4Text:
-        "This is where ecosystems, community groups, and local nodes operate in real life.",
-
-      pathsEyebrow: "ENTRY PATHS",
-      pathsTitle: "Each person should enter the system through the right role",
-      pathsLead:
-        "HOME should do more than show links. It should route people so they do not enter through the wrong door from the start.",
-      path1Title: "Observer",
-      path1Text:
-        "A newcomer should understand the system first, with no early commitment and no pressure.",
-      path2Title: "Participant",
-      path2Text:
-        "Someone who wants to join community life should first understand Participation, Community, and Ecosystem.",
-      path3Title: "Builder",
-      path3Text:
-        "A builder should understand the Charter, Boundaries, and the way system layers connect.",
-      path4Title: "Developer",
-      path4Text:
-        "A developer should enter Flow as the infrastructure platform layer, not confuse it with the Charter.",
-      path5Title: "Partner",
-      path5Text:
-        "A partner should clearly see the boundaries between protocol, ecosystem, and specialized platforms.",
-
-      platformsEyebrow: "CORE PLATFORMS",
-      platformsTitle: "Platforms do not replace the Charter. They serve the system",
-      platformsLead:
-        "These are infrastructure or tool surfaces that help the wider system become more visible, organized, and operational.",
-      flowCardText:
-        "An orchestration platform for AI workflows, agents, runtime, and data pipelines at production scale.",
-      iaiCardText:
-        "The Charter site that publishes the nature, principles, boundaries, and structure of the IAI system.",
-      homeCardText:
-        "The system portal that helps people see the whole structure and enter the right layer.",
-
-      ecosystemEyebrow: "ECOSYSTEM MAP",
-      ecosystemTitle:
-        "A full map between Charter, Portal, Platform, and Community",
-      ecosystemLead:
-        "This is not a decorative diagram. It is how the full system should be understood to avoid role confusion.",
-      ecosystemCenter: "Charter, Portal, Community and Infrastructure",
-
-      boundariesEyebrow: "BOUNDARIES",
-      boundariesTitle: "A serious system must clearly say what it is not",
-      boundariesLead:
-        "HOME should restate the core boundaries so people do not misread the nature of the system.",
-      boundary1Title: "Not a Financial System",
-      boundary1Text:
-        "IAI is not a financial system, not an investment platform, and does not promise returns.",
-      boundary2Title: "Not an Operator of Projects",
-      boundary2Text:
-        "IAI does not directly operate projects, manage people, or hold assets on behalf of the ecosystem.",
-      boundary3Title: "Not a Belief System",
-      boundary3Text:
-        "IAI is not a belief system, not a movement, and does not replace personal responsibility.",
-      boundary4Title: "Understanding Before Participation",
-      boundary4Text:
-        "People should understand the system structure before thinking about participation, building, or integration.",
-      boundary5Title: "Clear Roles Across Layers",
-      boundary5Text:
-        "Charter is Charter. Portal is Portal. Platform is Platform. Ecosystem is Ecosystem.",
-      boundary6Title: "Responsibility Over Hype",
-      boundary6Text:
-        "The system is held by boundaries, responsibility, and durability, not by short-term excitement.",
-
-      ctaEyebrow: "NEXT ACTION",
-      ctaTitle: "Understand the system first. Then enter the right layer.",
-      ctaText:
-        "If you need the root definition, read IAI.ONE. If you need the system map, use Home. If you need the orchestration platform, open Flow.",
-
-      footerLead:
-        "HOME.IAI.ONE is the central portal of the wider IAI system, where Charter, Ecosystem, Community, and Infrastructure are seen as a clear structure rather than a vague collection.",
-      footerMeta: "System Portal for Responsible Co-Existence"
-    }
-  };
-
-  const header = document.querySelector("[data-header]");
-  const menuToggle = document.querySelector("[data-menu-toggle]");
-  const mobileMenu = document.querySelector("[data-mobile-menu]");
-  const langToggle = document.querySelector("[data-lang-toggle]");
-  const langLabel = document.querySelector("[data-lang-label]");
-  const revealEls = Array.from(document.querySelectorAll(".reveal"));
-  const counters = Array.from(document.querySelectorAll("[data-count]"));
-  const scrollButtons = Array.from(document.querySelectorAll("[data-scroll]"));
-
-  function getSavedLang() {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return saved === "en" ? "en" : "vi";
-  }
-
-  function setLang(lang) {
-    const dict = i18n[lang] || i18n.vi;
-    localStorage.setItem(STORAGE_KEY, lang);
-    doc.lang = lang;
-
-    document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n");
-      if (dict[key]) {
-        el.textContent = dict[key];
-      }
-    });
-
-    if (langLabel) {
-      langLabel.textContent = lang.toUpperCase();
-    }
-
-    updateMeta(lang);
-  }
-
-  function updateMeta(lang) {
-    const title =
-      lang === "en"
-        ? "HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure"
-        : "HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure";
-
-    const description =
-      lang === "en"
-        ? "HOME.IAI.ONE is the central system portal of IAI, connecting Charter, Ecosystem, Community, and Infrastructure into a clear map with the right entry paths."
-        : "HOME.IAI.ONE là system portal trung tâm của toàn bộ hệ IAI: nơi kết nối Charter, Ecosystem, Community và Infrastructure thành một bản đồ rõ ràng, có trách nhiệm và có thể đi vào đúng cửa.";
-
-    document.title = title;
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-
-    if (metaDescription) metaDescription.setAttribute("content", description);
-    if (ogTitle) ogTitle.setAttribute("content", title);
-    if (ogDescription) ogDescription.setAttribute("content", description);
-    if (twitterTitle) twitterTitle.setAttribute("content", title);
-    if (twitterDescription) twitterDescription.setAttribute("content", description);
-  }
-
-  function updateHeaderState() {
-    if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 10);
-  }
-
-  function toggleMenu(forceState) {
-    if (!menuToggle || !mobileMenu) return;
-
-    const isOpen =
-      typeof forceState === "boolean"
-        ? forceState
-        : !mobileMenu.classList.contains("is-open");
-
-    mobileMenu.classList.toggle("is-open", isOpen);
-    menuToggle.classList.toggle("is-active", isOpen);
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    body.style.overflow = isOpen ? "hidden" : "";
-  }
-
-  function initMenu() {
-    if (!menuToggle || !mobileMenu) return;
-
-    menuToggle.addEventListener("click", () => toggleMenu());
-
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => toggleMenu(false));
-    });
-
-    window.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        toggleMenu(false);
-      }
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 860) {
-        toggleMenu(false);
-      }
-    });
-  }
-
-  function initLanguage() {
-    setLang(getSavedLang());
-
-    if (!langToggle) return;
-
-    langToggle.addEventListener("click", () => {
-      const next = getSavedLang() === "vi" ? "en" : "vi";
-      setLang(next);
-    });
-  }
-
-  function initReveal() {
-    if (!revealEls.length) return;
-
-    if (!("IntersectionObserver" in window)) {
-      revealEls.forEach((el) => el.classList.add("is-visible"));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          obs.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -8% 0px"
-      }
-    );
-
-    revealEls.forEach((el) => observer.observe(el));
-  }
-
-  function animateCounter(el) {
-    const target = Number(el.getAttribute("data-count") || "0");
-    if (!Number.isFinite(target)) return;
-
-    const duration = 1200;
-    const start = performance.now();
-
-    function frame(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const value = Math.round(target * eased);
-      el.textContent = String(value);
-
-      if (progress < 1) {
-        requestAnimationFrame(frame);
-      }
-    }
-
-    requestAnimationFrame(frame);
-  }
-
-  function initCounters() {
-    if (!counters.length) return;
-
-    if (!("IntersectionObserver" in window)) {
-      counters.forEach(animateCounter);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          animateCounter(entry.target);
-          obs.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.4
-      }
-    );
-
-    counters.forEach((el) => observer.observe(el));
-  }
-
-  function initScrollButtons() {
-    if (!scrollButtons.length) return;
-
-    scrollButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const selector = button.getAttribute("data-scroll");
-        if (!selector) return;
-
-        const target = document.querySelector(selector);
-        if (!target) return;
-
-        const headerOffset = header ? header.offsetHeight : 0;
-        const top = target.getBoundingClientRect().top + window.scrollY - headerOffset - 10;
-
-        window.scrollTo({
-          top,
-          behavior: "smooth"
-        });
-      });
-    });
-  }
-
-  function initYear() {
-    const yearEl = document.getElementById("year");
-    if (yearEl) {
-      yearEl.textContent = String(new Date().getFullYear());
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"HOME.IAI.ONE",
+    "url":"https://home.iai.one/",
+    "description":"HOME.IAI.ONE là system portal trung tâm của toàn bộ hệ IAI: nơi kết nối Charter, Ecosystem, Community và Infrastructure thành một bản đồ rõ ràng, có trách nhiệm và có thể đi vào đúng cửa.",
+    "publisher":{
+      "@type":"Organization",
+      "name":"IAI.ONE",
+      "url":"https://iai.one/"
     }
   }
+  </script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
 
-  document.addEventListener("DOMContentLoaded", () => {
-    initLanguage();
-    initMenu();
-    initReveal();
-    initCounters();
-    initScrollButtons();
-    initYear();
-    updateHeaderState();
+  <div class="site-bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+    <div class="bg-orb orb-c"></div>
+  </div>
 
-    window.addEventListener("scroll", updateHeaderState, { passive: true });
-  });
-})();
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="./index.html" aria-label="HOME.IAI.ONE">
+        <span class="brand-mark"></span>
+        <span class="brand-copy">
+          <strong>HOME.IAI.ONE</strong>
+          <em>System Portal</em>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Điều hướng chính">
+        <a href="./why.html">Why</a>
+        <a href="./layers.html">Layers</a>
+        <a href="./paths.html">Paths</a>
+        <a href="./platforms.html">Platforms</a>
+        <a href="./ecosystem.html">Ecosystem</a>
+        <a href="./boundaries.html">Boundaries</a>
+        <a href="./about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="Chuyển đổi ngôn ngữ">
+          <span data-lang-label>VI</span>
+        </button>
+
+        <a class="button button-ghost desktop-only" href="https://flow.iai.one/" target="_blank" rel="noopener">
+          Open Flow
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          data-menu-toggle
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+          aria-label="Mở menu"
+        >
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" data-mobile-menu>
+      <nav class="mobile-nav" aria-label="Điều hướng di động">
+        <a href="./why.html">Why</a>
+        <a href="./layers.html">Layers</a>
+        <a href="./paths.html">Paths</a>
+        <a href="./platforms.html">Platforms</a>
+        <a href="./ecosystem.html">Ecosystem</a>
+        <a href="./boundaries.html">Boundaries</a>
+        <a href="./about.html">About</a>
+        <a href="https://iai.one/" target="_blank" rel="noopener">Read Charter</a>
+        <a href="https://flow.iai.one/" target="_blank" rel="noopener">Open Flow</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow" data-i18n="heroEyebrow">SYSTEM PORTAL</div>
+          <h1 data-i18n="heroTitle">
+            Cổng điều hướng trung tâm cho toàn bộ hệ IAI.
+          </h1>
+          <p class="hero-lead" data-i18n="heroLead">
+            HOME.IAI.ONE không thay thế Charter, không vận hành ecosystem và không đóng vai trò platform. Đây là bản đồ hệ thống giúp người dùng nhìn thấy rõ Charter, Ecosystem, Community và Infrastructure của IAI trước khi đi vào chi tiết.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="./layers.html" data-i18n="heroPrimary">Hiểu cấu trúc hệ</a>
+            <a class="button button-secondary" href="https://iai.one/" target="_blank" rel="noopener" data-i18n="heroSecondary">Đọc Charter</a>
+          </div>
+
+          <ul class="hero-metrics" aria-label="Tóm tắt hệ thống">
+            <li class="metric-card reveal">
+              <strong data-count="4">0</strong>
+              <span data-i18n="metric1">Lớp hệ thống cốt lõi</span>
+            </li>
+            <li class="metric-card reveal">
+              <strong data-count="3">0</strong>
+              <span data-i18n="metric2">Vai trò domain trung tâm</span>
+            </li>
+            <li class="metric-card reveal">
+              <strong data-count="8">0</strong>
+              <span data-i18n="metric3">Đường đi vào hệ</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="hero-panel glass">
+            <div class="panel-top">
+              <span class="window-dot"></span>
+              <span class="window-dot"></span>
+              <span class="window-dot"></span>
+            </div>
+
+            <div class="portal-core">
+              <div class="core-ring ring-a"></div>
+              <div class="core-ring ring-b"></div>
+              <div class="core-ring ring-c"></div>
+
+              <div class="core-center">
+                <span>HOME</span>
+                <small>System Portal</small>
+              </div>
+
+              <button class="orbit-node node-1" type="button" onclick="window.location.href='./layers.html'">LAYERS</button>
+              <button class="orbit-node node-2" type="button" onclick="window.location.href='./paths.html'">PATHS</button>
+              <button class="orbit-node node-3" type="button" onclick="window.open('https://flow.iai.one/','_blank','noopener')">FLOW</button>
+              <button class="orbit-node node-4" type="button" onclick="window.location.href='./ecosystem.html'">MAP</button>
+              <button class="orbit-node node-5" type="button" onclick="window.location.href='./boundaries.html'">LIMITS</button>
+            </div>
+
+            <div class="portal-status">
+              <div class="status-box">
+                <span data-i18n="statusLabel1">Root</span>
+                <strong>Portal</strong>
+              </div>
+              <div class="status-box">
+                <span data-i18n="statusLabel2">Primary Link</span>
+                <strong>IAI.ONE Charter</strong>
+              </div>
+              <div class="status-box">
+                <span data-i18n="statusLabel3">Flagship Platform</span>
+                <strong>Flow</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-intro">
+      <div class="container">
+        <div class="intro-banner glass reveal">
+          <div class="intro-copy">
+            <div class="eyebrow">HOME AS PORTAL</div>
+            <h2>Trang chủ này không lặp lại các trang con. Nó gom toàn bộ hệ thành một bản đồ rõ ràng.</h2>
+            <p>
+              Mỗi trang trong menu là một file độc lập với nội dung chuyên biệt. Trang chủ đóng vai trò cổng trung tâm để nhìn tổng thể, chọn đúng hướng đi và chuyển sang từng lớp nội dung mà không bị trộn vai trò.
+            </p>
+          </div>
+
+          <div class="intro-mini-grid">
+            <div class="mini-box reveal">
+              <strong>01</strong>
+              <span>Read as a map</span>
+            </div>
+            <div class="mini-box reveal">
+              <strong>02</strong>
+              <span>Choose the right page</span>
+            </div>
+            <div class="mini-box reveal">
+              <strong>03</strong>
+              <span>Keep roles separated</span>
+            </div>
+            <div class="mini-box reveal">
+              <strong>04</strong>
+              <span>Enter with clarity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">READING ORDER</div>
+          <h2>Thứ tự đọc nền cho toàn bộ hệ</h2>
+          <p>
+            Một người mới không nên đi thẳng vào platform hoặc ecosystem mà bỏ qua định nghĩa. Trang chủ này gợi ý thứ tự đọc nền để nhìn đúng toàn bộ hệ trước.
+          </p>
+        </div>
+
+        <div class="control-grid">
+          <article class="control-card reveal">
+            <span class="control-badge">01</span>
+            <h3>Why</h3>
+            <p>Hiểu vì sao hệ cần tồn tại trong bối cảnh bất ổn, tăng tốc AI và khủng hoảng niềm tin.</p>
+            <a href="./why.html">Open Why</a>
+          </article>
+
+          <article class="control-card reveal">
+            <span class="control-badge">02</span>
+            <h3>Layers</h3>
+            <p>Hiểu bốn lớp nền của hệ để không đọc sai vai trò giữa Charter, Portal, Infrastructure và Ecosystem.</p>
+            <a href="./layers.html">Open Layers</a>
+          </article>
+
+          <article class="control-card reveal">
+            <span class="control-badge">03</span>
+            <h3>Paths</h3>
+            <p>Chọn đường đi phù hợp với vai trò thực tế: observer, participant, builder, developer hoặc partner.</p>
+            <a href="./paths.html">Open Paths</a>
+          </article>
+
+          <article class="control-card reveal">
+            <span class="control-badge">04</span>
+            <h3>Platforms</h3>
+            <p>Phân biệt rõ IAI.ONE như Charter, HOME như Portal và FLOW như Infrastructure flagship.</p>
+            <a href="./platforms.html">Open Platforms</a>
+          </article>
+
+          <article class="control-card reveal">
+            <span class="control-badge">05</span>
+            <h3>Ecosystem</h3>
+            <p>Nhìn nơi hệ đi vào đời sống thực qua ecosystem, community groups và local nodes.</p>
+            <a href="./ecosystem.html">Open Ecosystem</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">SYSTEM PAGES</div>
+          <h2>Trang chủ đồng bộ với toàn bộ các file nội dung đã tách riêng</h2>
+          <p>
+            Mỗi file trong hệ Home.iai.one giữ một chức năng chuyên biệt. Trang chủ chỉ tóm lược, định vị và điều hướng về đúng trang chi tiết.
+          </p>
+        </div>
+
+        <div class="platform-grid">
+          <article class="platform-card reveal">
+            <div class="platform-top">
+              <span class="platform-badge">Definition</span>
+              <h3>About</h3>
+            </div>
+            <p>Nơi chốt định nghĩa bản chất của IAI, vai trò của Charter, Boundaries, Roles và Participation.</p>
+            <a href="./about.html">Open page</a>
+          </article>
+
+          <article class="platform-card reveal">
+            <div class="platform-top">
+              <span class="platform-badge">Origin</span>
+              <h3>Why</h3>
+            </div>
+            <p>Nơi giải thích vì sao hệ cần tồn tại như một Charter Layer và vì sao Home cần tồn tại như Portal.</p>
+            <a href="./why.html">Open page</a>
+          </article>
+
+          <article class="platform-card reveal">
+            <div class="platform-top">
+              <span class="platform-badge">Structure</span>
+              <h3>Layers</h3>
+            </div>
+            <p>Nơi giải thích bốn lớp cấu trúc nền để hệ không bị hiểu sai hoặc trộn vai trò.</p>
+            <a href="./layers.html">Open page</a>
+          </article>
+
+          <article class="platform-card reveal">
+            <div class="platform-top">
+              <span class="platform-badge">Routing</span>
+              <h3>Paths</h3>
+            </div>
+            <p>Nơi phân luồng người dùng theo vai trò thực tế, tránh đi sai cửa ngay từ đầu.</p>
+            <a href="./paths.html">Open page</a>
+          </article>
+
+          <article class="platform-card featured reveal">
+            <div class="platform-top">
+              <span class="platform-badge">Tools</span>
+              <h3>Platforms</h3>
+            </div>
+            <p>Nơi định vị các domain cốt lõi và lớp công cụ phục vụ hệ, đặc biệt là Flow.</p>
+            <ul class="platform-points">
+              <li>IAI.ONE as Charter</li>
+              <li>HOME as Portal</li>
+              <li>Flow as Infrastructure</li>
+            </ul>
+            <a href="./platforms.html">Open page</a>
+          </article>
+
+          <article class="platform-card reveal">
+            <div class="platform-top">
+              <span class="platform-badge">Life</span>
+              <h3>Ecosystem</h3>
+            </div>
+            <p>Nơi giải thích hệ đi vào đời sống thực qua community groups, local nodes và trách nhiệm địa phương.</p>
+            <a href="./ecosystem.html">Open page</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">BOUNDARY RECAP</div>
+          <h2>Những ranh giới cốt lõi cần nhớ ngay từ trang chủ</h2>
+          <p>
+            Không cần đợi vào trang Boundaries mới hiểu nguyên tắc nền. Trang chủ phải nhắc lại đủ rõ để người dùng không đọc sai bản chất của toàn hệ ngay từ phút đầu.
+          </p>
+        </div>
+
+        <div class="mission-grid">
+          <article class="mission-card reveal">
+            <h3>Not a Financial System</h3>
+            <p>IAI không phải hệ tài chính, không phải nền tảng đầu tư và không được đọc như lời hứa lợi nhuận.</p>
+          </article>
+
+          <article class="mission-card reveal">
+            <h3>Not a Central Operator</h3>
+            <p>IAI không trực tiếp điều hành mọi ecosystem hay mọi dự án như một trung tâm quyền lực.</p>
+          </article>
+
+          <article class="mission-card reveal">
+            <h3>Not a Vague Movement</h3>
+            <p>Đây không phải phong trào cảm xúc hay hệ nhận diện để phóng đại bản thân mà thiếu cấu trúc thật.</p>
+          </article>
+
+          <article class="mission-card reveal">
+            <h3>Portal Is Not Charter</h3>
+            <p>HOME chỉ là cổng nhìn toàn hệ, không thay thế IAI.ONE như lớp Charter gốc.</p>
+          </article>
+
+          <article class="mission-card reveal">
+            <h3>Platform Is Not Identity</h3>
+            <p>Flow là lớp công cụ hạ tầng mạnh, nhưng không phải danh tính của toàn bộ hệ IAI.</p>
+          </article>
+
+          <article class="mission-card reveal">
+            <h3>Understanding Before Entry</h3>
+            <p>Hiểu định nghĩa và cấu trúc phải đến trước tham gia, tích hợp hay mở rộng kỹ thuật.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="ecosystem-shell glass reveal">
+          <div class="ecosystem-map">
+            <button class="ecosystem-node e1" type="button" onclick="window.location.href='./why.html'">WHY</button>
+            <button class="ecosystem-node e2" type="button" onclick="window.location.href='./layers.html'">LAYERS</button>
+            <button class="ecosystem-node e3" type="button" onclick="window.location.href='./paths.html'">PATHS</button>
+            <button class="ecosystem-node e4" type="button" onclick="window.location.href='./platforms.html'">PLATFORMS</button>
+            <button class="ecosystem-node e5" type="button" onclick="window.location.href='./ecosystem.html'">ECOSYSTEM</button>
+            <button class="ecosystem-node e6" type="button" onclick="window.location.href='./boundaries.html'">BOUNDARIES</button>
+            <button class="ecosystem-node e7" type="button" onclick="window.location.href='./about.html'">ABOUT</button>
+            <button class="ecosystem-node e8" type="button" onclick="window.open('https://iai.one/','_blank','noopener')">IAI.ONE</button>
+
+            <div class="ecosystem-center">
+              <strong>HOME MAP</strong>
+              <span>All core pages synchronized as one system portal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-panel glass reveal">
+          <div class="cta-copy">
+            <div class="eyebrow">PRIMARY ACTIONS</div>
+            <h2>Ba cửa chính của toàn hệ đã được tách rõ.</h2>
+            <p>
+              Nếu cần lớp định nghĩa gốc, đọc IAI.ONE. Nếu cần bản đồ của toàn hệ và các trang chuyên đề, dùng Home. Nếu cần infrastructure flagship, mở Flow.
+            </p>
+          </div>
+
+          <div class="cta-actions">
+            <a class="button button-primary" href="https://iai.one/" target="_blank" rel="noopener">
+              Read Charter
+            </a>
+            <a class="button button-secondary" href="https://flow.iai.one/" target="_blank" rel="noopener">
+              Open Flow
+            </a>
+            <a class="button button-ghost" href="./about.html">
+              Open About
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="logo-mark"></span>
+          <strong>HOME.IAI.ONE</strong>
+        </div>
+        <p>
+          HOME.IAI.ONE là portal trung tâm của toàn bộ hệ IAI, đồng bộ với toàn bộ các file nội dung riêng để người dùng nhìn đúng cấu trúc, chọn đúng cửa và giữ đúng vai trò của từng lớp.
+        </p>
+        <div class="footer-meta">
+          <span>System Portal for Responsible Co-Existence</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <nav>
+          <a href="./about.html">About</a>
+          <a href="./why.html">Why</a>
+          <a href="./layers.html">Layers</a>
+          <a href="./paths.html">Paths</a>
+          <a href="./platforms.html">Platforms</a>
+          <a href="./ecosystem.html">Ecosystem</a>
+          <a href="./boundaries.html">Boundaries</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <h4>Core</h4>
+        <nav>
+          <a href="https://iai.one/" target="_blank" rel="noopener">IAI.ONE</a>
+          <a href="https://flow.iai.one/" target="_blank" rel="noopener">Flow</a>
+          <a href="./index.html">Home</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <h4>Direction</h4>
+        <nav>
+          <a href="https://tranhatam.com/" target="_blank" rel="noopener">Trần Hà Tâm</a>
+          <a href="https://docs.iai.one/" target="_blank" rel="noopener">Docs</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span class="copyright">© <span id="year"></span> IAI.ONE</span>
+        <div class="footer-links">
+          <a href="https://iai.one/" target="_blank" rel="noopener">iai.one</a>
+          <a href="https://flow.iai.one/" target="_blank" rel="noopener">flow.iai.one</a>
+          <a href="https://home.iai.one/" target="_blank" rel="noopener">home.iai.one</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
