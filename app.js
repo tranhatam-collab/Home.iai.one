@@ -1,160 +1,233 @@
 (function () {
   "use strict";
 
-  const STORAGE_KEY = "iai_home_lang";
+  const STORAGE_KEY = "home_iai_lang";
 
   const i18n = {
     vi: {
-      heroEyebrow: "HUMAN INTELLIGENCE INFRASTRUCTURE",
-      heroTitle: "Portal trung tâm cho AGI architecture, workflow systems và hệ sinh thái trí tuệ thế hệ mới.",
-      heroLead: "HOME.IAI.ONE không chỉ là trang chủ. Đây là lớp định vị chiến lược cho toàn bộ hệ IAI.ONE: nơi kết nối orchestration, platform launcher, knowledge universe, mission systems và những cổng vận hành quan trọng nhất.",
-      heroPrimary: "Khám phá portal",
-      heroSecondary: "Mở IAI Flow",
-      metric1: "Lớp vận hành cốt lõi",
-      metric2: "Portal và nền tảng liên kết",
-      metric3: "Khả năng mở rộng theo cụm",
-      statusLabel1: "Runtime",
-      statusLabel2: "Mode",
-      statusLabel3: "Access",
+      heroEyebrow: "SYSTEM PORTAL",
+      heroTitle: "Cổng điều hướng trung tâm cho toàn bộ hệ IAI.",
+      heroLead:
+        "HOME.IAI.ONE không thay thế Charter, không vận hành ecosystem và không đóng vai trò platform. Đây là bản đồ hệ thống giúp người dùng nhìn thấy rõ Charter, Ecosystem, Community và Infrastructure của IAI trước khi đi vào chi tiết.",
+      heroPrimary: "Hiểu cấu trúc hệ",
+      heroSecondary: "Đọc Charter",
+      metric1: "Lớp hệ thống cốt lõi",
+      metric2: "Vai trò domain trung tâm",
+      metric3: "Đường đi vào hệ",
+      statusLabel1: "Root",
+      statusLabel2: "Primary Link",
+      statusLabel3: "Flagship Platform",
 
-      introTitle: "Một portal AGI mạnh phải rõ thứ tự đi vào hệ thống",
-      introLead: "Người dùng phải nhìn ra ngay đâu là tầng định vị, đâu là tầng orchestration, đâu là tầng platform launcher, đâu là lớp tri thức, đâu là mission layer và đâu là những cổng quan trọng nhất để bắt đầu.",
+      whyEyebrow: "WHY THIS SYSTEM EXISTS",
+      whyTitle: "Vì con người cần một cách nhìn có cấu trúc trước khi tham gia bất kỳ hệ nào",
+      whyLead:
+        "Trong thời đại bất ổn, AI tăng tốc và niềm tin xã hội phân mảnh, việc thiếu ranh giới, thiếu định nghĩa và thiếu bản đồ hệ thống khiến người dùng dễ hiểu sai mọi thứ. HOME tồn tại để làm rõ cấu trúc trước khi mời ai đó bước vào.",
 
-      architectureEyebrow: "AGI ARCHITECTURE",
-      architectureTitle: "Kiến trúc nhiều lớp cho một portal AGI có thể mở rộng thật sự",
-      architectureLead: "Không chỉ là landing page. Đây phải là một portal vận hành được: rõ tầng định vị, rõ tầng orchestration, rõ platform launcher, rõ knowledge layer và rõ mission layer.",
-      arch1Title: "Identity Layer",
-      arch1Text: "HOME.IAI.ONE phải là điểm vào chiến lược của toàn bộ hệ sinh thái, không phải trang giới thiệu chung chung.",
-      arch2Title: "Platform Gateway",
-      arch2Text: "Mọi nền tảng cốt lõi phải được mở như một launchpad có vai trò, trật tự và định nghĩa rõ ràng.",
-      arch3Title: "AGI Orchestration",
-      arch3Text: "Flow, runtime, agent network và automation phải đứng thành một lớp chiến lược riêng.",
-      arch4Title: "Knowledge Universe",
-      arch4Text: "Bản đồ tri thức, research directions và các hệ tri thức ứng dụng cần có không gian hiển thị riêng.",
-      arch5Title: "Human Mission OS",
-      arch5Text: "Portal phải thể hiện mục tiêu cuối cùng là mở rộng năng lực con người, không chỉ phô diễn công nghệ.",
-      arch6Title: "Production Shell",
-      arch6Text: "Desktop, mobile, nav, chuyển động, chiều sâu thị giác và semantic structure đều phải đạt chuẩn production.",
+      layersEyebrow: "THE 4 LAYERS OF IAI",
+      layersTitle: "Toàn hệ IAI chỉ nên được hiểu đúng khi nhìn theo từng lớp",
+      layersLead:
+        "Nếu trộn Charter, Ecosystem, Community và Infrastructure thành một khối, toàn bộ hệ sẽ bị hiểu sai. HOME phải làm rõ ranh giới giữa các lớp này.",
+      layer1Title: "Charter Layer",
+      layer1Text:
+        "IAI.ONE giữ nguyên tắc, ranh giới, ngôn ngữ chung và chuẩn minh bạch. Đây là tầng gốc.",
+      layer2Title: "Portal Layer",
+      layer2Text:
+        "HOME.IAI.ONE là nơi nhìn thấy toàn hệ, hiểu toàn hệ và đi vào đúng cửa.",
+      layer3Title: "Infrastructure Layer",
+      layer3Text:
+        "Các platform như Flow tồn tại để phục vụ vận hành, automation, workflow và hạ tầng kỹ thuật.",
+      layer4Title: "Ecosystem Layer",
+      layer4Text:
+        "Đây là nơi các ecosystem, community groups và local nodes vận hành trong thực tế.",
+
+      pathsEyebrow: "ENTRY PATHS",
+      pathsTitle: "Mỗi người nên vào hệ theo đúng vai trò của mình",
+      pathsLead:
+        "HOME không chỉ hiển thị link. Nó phải phân luồng để người xem không đi sai cửa ngay từ đầu.",
+      path1Title: "Observer",
+      path1Text:
+        "Người mới cần hiểu hệ trước, không cam kết, không bị kéo vào sớm.",
+      path2Title: "Participant",
+      path2Text:
+        "Người muốn tham gia cộng đồng cần hiểu Participation, Community và Ecosystem.",
+      path3Title: "Builder",
+      path3Text:
+        "Người xây hệ cần hiểu Charter, Boundaries và cách các lớp liên kết với nhau.",
+      path4Title: "Developer",
+      path4Text:
+        "Người phát triển công nghệ nên đi vào Flow như lớp platform hạ tầng, không nhầm nó là Charter.",
+      path5Title: "Partner",
+      path5Text:
+        "Đối tác cần thấy rõ ranh giới giữa protocol, ecosystem và các platform chuyên biệt.",
 
       platformsEyebrow: "CORE PLATFORMS",
-      platformsTitle: "Launchpad trung tâm cho các nền tảng cốt lõi",
-      platformsLead: "Đây là nơi người dùng hiểu ngay hệ sinh thái đang đi đâu, mỗi nền tảng làm gì và nên bước vào đâu trước.",
-      flowCardText: "Hạ tầng orchestration cho workflow AI, agent network, node systems và runtime automation.",
+      platformsTitle: "Các platform không thay thế Charter. Chúng phục vụ hệ",
+      platformsLead:
+        "Đây là các lớp hạ tầng hoặc bề mặt công cụ đang giúp hệ hiển thị, tổ chức hoặc vận hành rõ ràng hơn.",
+      flowCardText:
+        "Nền tảng orchestration cho AI workflows, agents, runtime và data pipelines ở production scale.",
+      iaiCardText:
+        "Charter site công bố bản chất, nguyên tắc, ranh giới và cấu trúc của hệ IAI.",
+      homeCardText:
+        "System portal giúp người dùng nhìn toàn cảnh hệ và đi vào đúng lớp phù hợp.",
 
-      flowEyebrow: "FLAGSHIP SYSTEM",
-      flowTitle: "IAI Flow phải hiện ra như engine trung tâm của thời đại workflow thông minh",
-      flowLead: "Khi người dùng vào HOME.IAI.ONE, họ phải nhìn thấy ngay Flow là lớp orchestration có khả năng kết nối AI, logic vận hành, runtime và hệ tác nhân trong cùng một kiến trúc.",
-      flowPoint1: "Thiết kế, chạy và quan sát execution graph theo mô hình mở rộng dài hạn.",
-      flowPoint2: "Điều phối nhiều agent trong cùng pipeline thay vì dùng AI rời rạc từng điểm.",
-      flowPoint3: "Mở đường vào docs, modules, node building và logic tích hợp hệ sinh thái.",
-      flowButton: "Truy cập IAI Flow",
+      ecosystemEyebrow: "ECOSYSTEM MAP",
+      ecosystemTitle:
+        "Bản đồ tổng thể giữa Charter, Portal, Platform và Community",
+      ecosystemLead:
+        "Đây không phải sơ đồ ảo. Đây là cách toàn hệ nên được hiểu để tránh mọi nhầm lẫn về vai trò.",
+      ecosystemCenter: "Charter, Portal, Community and Infrastructure",
 
-      universeEyebrow: "KNOWLEDGE UNIVERSE",
-      universeTitle: "Bản đồ tri thức không gian rộng cho AGI, con người và nền văn minh",
-      universeLead: "Phần này không cần giả 3D nặng nề, mà cần tạo được cảm giác về một hệ tri thức sống, có chiều sâu, có lớp, có khả năng mở rộng.",
-      universeCenter: "Một bản đồ sống của các hệ trí tuệ",
+      boundariesEyebrow: "BOUNDARIES",
+      boundariesTitle: "Một hệ đúng phải dám nói rõ mình không phải gì",
+      boundariesLead:
+        "HOME phải nhắc lại ranh giới cốt lõi để người dùng không đọc sai bản chất của hệ.",
+      boundary1Title: "Not a Financial System",
+      boundary1Text:
+        "IAI không phải hệ tài chính, không phải nền tảng đầu tư và không hứa hẹn lợi nhuận.",
+      boundary2Title: "Not an Operator of Projects",
+      boundary2Text:
+        "IAI không trực tiếp vận hành dự án, không quản lý con người và không giữ tài sản thay cho ecosystem.",
+      boundary3Title: "Not a Belief System",
+      boundary3Text:
+        "IAI không phải hệ niềm tin, không phải phong trào và không thay thế trách nhiệm cá nhân.",
+      boundary4Title: "Understanding Before Participation",
+      boundary4Text:
+        "Mọi người nên hiểu cấu trúc hệ trước khi nghĩ đến tham gia, xây dựng hay tích hợp.",
+      boundary5Title: "Clear Roles Across Layers",
+      boundary5Text:
+        "Charter là Charter. Portal là Portal. Platform là Platform. Ecosystem là Ecosystem.",
+      boundary6Title: "Responsibility Over Hype",
+      boundary6Text:
+        "Hệ được giữ bằng ranh giới, trách nhiệm và tính bền vững, không phải bằng hưng phấn ngắn hạn.",
 
-      missionEyebrow: "MISSION LAYER",
-      missionTitle: "Một portal AGI không chỉ đẹp, mà phải rõ cấu trúc, rõ vai trò và rõ tương lai",
-      missionLead: "HOME.IAI.ONE là cổng điều hướng chiến lược cho toàn bộ hệ sinh thái IAI, nơi người dùng, developer, founder và đối tác có thể hiểu, khám phá và đi vào từng lớp vận hành quan trọng nhất.",
-      missionCard1Title: "Strategic Entry Point",
-      missionCard1Text: "Trang chủ phải đóng vai trò như lớp định hướng đầu tiên cho toàn bộ hệ IAI, không chỉ là landing page giới thiệu.",
-      missionCard2Title: "Operational Clarity",
-      missionCard2Text: "Mọi lớp trong hệ phải có định nghĩa, vai trò và đường dẫn rõ ràng.",
-      missionCard3Title: "Human Directed AGI",
-      missionCard3Text: "AGI phải vận hành dưới định hướng của con người, minh bạch và có thể kiểm soát.",
-      missionCard4Title: "Portal Architecture",
-      missionCard4Text: "HOME.IAI.ONE phải là cổng vào toàn bộ ecosystem, kết nối Flow, runtime systems, governance và public knowledge.",
-      missionCard5Title: "Trust By Design",
-      missionCard5Text: "Bảo mật, quyền riêng tư, xác thực nguồn dữ liệu và khả năng kiểm chứng phải nằm ở tầng thiết kế đầu tiên.",
-      missionCard6Title: "Civilization Scale Thinking",
-      missionCard6Text: "Portal phải thể hiện tầm nhìn hạ tầng trí tuệ cho cá nhân, cộng đồng, tổ chức và xã hội tương lai.",
+      ctaEyebrow: "NEXT ACTION",
+      ctaTitle: "Hiểu đúng hệ trước. Sau đó mới đi vào đúng lớp.",
+      ctaText:
+        "Nếu cần gốc định nghĩa, đọc IAI.ONE. Nếu cần bản đồ hệ, dùng Home. Nếu cần platform orchestration, mở Flow.",
 
-      ctaTitle: "Bắt đầu từ HOME.IAI.ONE. Đi vào đúng cửa của hệ sinh thái.",
-      ctaText: "Nếu cần orchestration và automation, vào Flow. Nếu cần intelligence system, vào LifeCode. Nếu cần community layer, mở Nhà Chung hoặc Muôn Nơi."
+      footerLead:
+        "HOME.IAI.ONE là portal trung tâm của toàn bộ hệ IAI, nơi Charter, Ecosystem, Community và Infrastructure được nhìn thấy như một cấu trúc rõ ràng thay vì một tập hợp mơ hồ.",
+      footerMeta: "System Portal for Responsible Co-Existence"
     },
+
     en: {
-      heroEyebrow: "HUMAN INTELLIGENCE INFRASTRUCTURE",
-      heroTitle: "The central portal for AGI architecture, workflow systems, and next generation intelligence platforms.",
-      heroLead: "HOME.IAI.ONE is not just a homepage. It is the strategic positioning layer for the entire IAI.ONE ecosystem: connecting orchestration, platform launchers, the knowledge universe, mission systems, and the most important operational gateways.",
-      heroPrimary: "Explore portal",
-      heroSecondary: "Open IAI Flow",
-      metric1: "Core operating layers",
-      metric2: "Linked portals and platforms",
-      metric3: "Cluster scale expansion capacity",
-      statusLabel1: "Runtime",
-      statusLabel2: "Mode",
-      statusLabel3: "Access",
+      heroEyebrow: "SYSTEM PORTAL",
+      heroTitle: "The central navigation gateway for the full IAI system.",
+      heroLead:
+        "HOME.IAI.ONE does not replace the Charter, does not operate the ecosystem, and is not itself a platform. It is a system map that helps people clearly see the Charter, Ecosystem, Community, and Infrastructure of IAI before entering details.",
+      heroPrimary: "Understand the system",
+      heroSecondary: "Read the Charter",
+      metric1: "Core system layers",
+      metric2: "Central domain roles",
+      metric3: "Entry paths",
+      statusLabel1: "Root",
+      statusLabel2: "Primary Link",
+      statusLabel3: "Flagship Platform",
 
-      introTitle: "A strong AGI portal must make the entry order of the system clear",
-      introLead: "Users should immediately see the identity layer, the orchestration layer, the platform launcher, the knowledge layer, the mission layer, and the key gateways to begin with.",
+      whyEyebrow: "WHY THIS SYSTEM EXISTS",
+      whyTitle:
+        "Because people need a structured view before entering any serious system",
+      whyLead:
+        "In an era of instability, accelerating AI, and fragmented trust, the absence of boundaries, definitions, and system maps makes everything easy to misunderstand. HOME exists to clarify structure before anyone steps in.",
 
-      architectureEyebrow: "AGI ARCHITECTURE",
-      architectureTitle: "A multi layer architecture for a truly scalable AGI portal",
-      architectureLead: "This should not remain a landing page. It must operate as a real portal: clear identity, clear orchestration layer, clear platform launcher, clear knowledge layer, and clear mission layer.",
-      arch1Title: "Identity Layer",
-      arch1Text: "HOME.IAI.ONE must act as the strategic entry point for the full ecosystem, not as a generic presentation page.",
-      arch2Title: "Platform Gateway",
-      arch2Text: "Every core platform should open through a launchpad with role, order, and definition clearly established.",
-      arch3Title: "AGI Orchestration",
-      arch3Text: "Flow, runtime, agent networks, and automation must stand as a distinct strategic layer.",
-      arch4Title: "Knowledge Universe",
-      arch4Text: "Knowledge maps, research directions, and applied intelligence systems need their own surface.",
-      arch5Title: "Human Mission OS",
-      arch5Text: "The portal must express the final purpose: expanding human capability, not merely displaying technology.",
-      arch6Title: "Production Shell",
-      arch6Text: "Desktop, mobile, navigation, motion, visual depth, and semantic structure should all meet production quality.",
+      layersEyebrow: "THE 4 LAYERS OF IAI",
+      layersTitle: "The IAI system should only be understood correctly in layers",
+      layersLead:
+        "If Charter, Ecosystem, Community, and Infrastructure are mixed into one vague block, the whole system will be misunderstood. HOME exists to make the boundaries between those layers visible.",
+      layer1Title: "Charter Layer",
+      layer1Text:
+        "IAI.ONE holds principles, boundaries, shared language, and transparency standards. This is the root layer.",
+      layer2Title: "Portal Layer",
+      layer2Text:
+        "HOME.IAI.ONE is where the whole system can be seen, understood, and entered correctly.",
+      layer3Title: "Infrastructure Layer",
+      layer3Text:
+        "Platforms such as Flow exist to support operations, automation, workflows, and technical infrastructure.",
+      layer4Title: "Ecosystem Layer",
+      layer4Text:
+        "This is where ecosystems, community groups, and local nodes operate in real life.",
+
+      pathsEyebrow: "ENTRY PATHS",
+      pathsTitle: "Each person should enter the system through the right role",
+      pathsLead:
+        "HOME should do more than show links. It should route people so they do not enter through the wrong door from the start.",
+      path1Title: "Observer",
+      path1Text:
+        "A newcomer should understand the system first, with no early commitment and no pressure.",
+      path2Title: "Participant",
+      path2Text:
+        "Someone who wants to join community life should first understand Participation, Community, and Ecosystem.",
+      path3Title: "Builder",
+      path3Text:
+        "A builder should understand the Charter, Boundaries, and the way system layers connect.",
+      path4Title: "Developer",
+      path4Text:
+        "A developer should enter Flow as the infrastructure platform layer, not confuse it with the Charter.",
+      path5Title: "Partner",
+      path5Text:
+        "A partner should clearly see the boundaries between protocol, ecosystem, and specialized platforms.",
 
       platformsEyebrow: "CORE PLATFORMS",
-      platformsTitle: "A central launchpad for the core platforms",
-      platformsLead: "Users should immediately understand where the ecosystem is going, what each platform does, and which gateway they should enter first.",
-      flowCardText: "Orchestration infrastructure for AI workflows, agent networks, node systems, and runtime automation.",
+      platformsTitle: "Platforms do not replace the Charter. They serve the system",
+      platformsLead:
+        "These are infrastructure or tool surfaces that help the wider system become more visible, organized, and operational.",
+      flowCardText:
+        "An orchestration platform for AI workflows, agents, runtime, and data pipelines at production scale.",
+      iaiCardText:
+        "The Charter site that publishes the nature, principles, boundaries, and structure of the IAI system.",
+      homeCardText:
+        "The system portal that helps people see the whole structure and enter the right layer.",
 
-      flowEyebrow: "FLAGSHIP SYSTEM",
-      flowTitle: "IAI Flow should appear as the central engine for the intelligent workflow era",
-      flowLead: "When users enter HOME.IAI.ONE, they should instantly understand that Flow is the orchestration layer connecting AI, operational logic, runtime, and agent systems in one architecture.",
-      flowPoint1: "Design, execute, and observe execution graphs under a long term scalable model.",
-      flowPoint2: "Coordinate multiple agents inside a single pipeline instead of relying on isolated AI points.",
-      flowPoint3: "Open the path to docs, modules, node building, and ecosystem integration logic.",
-      flowButton: "Open IAI Flow",
+      ecosystemEyebrow: "ECOSYSTEM MAP",
+      ecosystemTitle:
+        "A full map between Charter, Portal, Platform, and Community",
+      ecosystemLead:
+        "This is not a decorative diagram. It is how the full system should be understood to avoid role confusion.",
+      ecosystemCenter: "Charter, Portal, Community and Infrastructure",
 
-      universeEyebrow: "KNOWLEDGE UNIVERSE",
-      universeTitle: "A wide space knowledge map for AGI, humanity, and civilization",
-      universeLead: "This section does not need heavy fake 3D. It needs to evoke a living knowledge system with depth, layers, and room to expand.",
-      universeCenter: "A living map of intelligence systems",
+      boundariesEyebrow: "BOUNDARIES",
+      boundariesTitle: "A serious system must clearly say what it is not",
+      boundariesLead:
+        "HOME should restate the core boundaries so people do not misread the nature of the system.",
+      boundary1Title: "Not a Financial System",
+      boundary1Text:
+        "IAI is not a financial system, not an investment platform, and does not promise returns.",
+      boundary2Title: "Not an Operator of Projects",
+      boundary2Text:
+        "IAI does not directly operate projects, manage people, or hold assets on behalf of the ecosystem.",
+      boundary3Title: "Not a Belief System",
+      boundary3Text:
+        "IAI is not a belief system, not a movement, and does not replace personal responsibility.",
+      boundary4Title: "Understanding Before Participation",
+      boundary4Text:
+        "People should understand the system structure before thinking about participation, building, or integration.",
+      boundary5Title: "Clear Roles Across Layers",
+      boundary5Text:
+        "Charter is Charter. Portal is Portal. Platform is Platform. Ecosystem is Ecosystem.",
+      boundary6Title: "Responsibility Over Hype",
+      boundary6Text:
+        "The system is held by boundaries, responsibility, and durability, not by short-term excitement.",
 
-      missionEyebrow: "MISSION LAYER",
-      missionTitle: "An AGI portal must be more than beautiful. It must make structure, role, and future direction clear",
-      missionLead: "HOME.IAI.ONE is the strategic gateway for the wider IAI ecosystem, where users, developers, founders, and partners can understand and enter the most important layers of operation.",
-      missionCard1Title: "Strategic Entry Point",
-      missionCard1Text: "The homepage must act as the first orientation layer for the whole IAI system, not merely as a presentation landing page.",
-      missionCard2Title: "Operational Clarity",
-      missionCard2Text: "Every layer in the system must have clear definitions, roles, and pathways.",
-      missionCard3Title: "Human Directed AGI",
-      missionCard3Text: "AGI must operate under human direction, with transparency and controllability.",
-      missionCard4Title: "Portal Architecture",
-      missionCard4Text: "HOME.IAI.ONE must serve as the entry gateway to the ecosystem, connecting Flow, runtime systems, governance, and public knowledge.",
-      missionCard5Title: "Trust By Design",
-      missionCard5Text: "Security, privacy, source verification, and auditability must exist at the first design layer.",
-      missionCard6Title: "Civilization Scale Thinking",
-      missionCard6Text: "The portal must express an intelligence infrastructure vision for individuals, communities, organizations, and future society.",
+      ctaEyebrow: "NEXT ACTION",
+      ctaTitle: "Understand the system first. Then enter the right layer.",
+      ctaText:
+        "If you need the root definition, read IAI.ONE. If you need the system map, use Home. If you need the orchestration platform, open Flow.",
 
-      ctaTitle: "Start from HOME.IAI.ONE. Enter the ecosystem through the right gateway.",
-      ctaText: "If you need orchestration and automation, enter Flow. If you need an intelligence system, enter LifeCode. If you need the community layer, open Nhà Chung or Muôn Nơi."
+      footerLead:
+        "HOME.IAI.ONE is the central portal of the wider IAI system, where Charter, Ecosystem, Community, and Infrastructure are seen as a clear structure rather than a vague collection.",
+      footerMeta: "System Portal for Responsible Co-Existence"
     }
   };
 
-  const doc = document.documentElement;
-  const body = document.body;
   const header = document.querySelector("[data-header]");
-  const langToggle = document.querySelector("[data-lang-toggle]");
-  const langLabel = document.querySelector("[data-lang-label]");
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const mobileMenu = document.querySelector("[data-mobile-menu]");
-  const reveals = Array.from(document.querySelectorAll(".reveal"));
+  const langToggle = document.querySelector("[data-lang-toggle]");
+  const langLabel = document.querySelector("[data-lang-label]");
+  const revealEls = Array.from(document.querySelectorAll(".reveal"));
   const counters = Array.from(document.querySelectorAll("[data-count]"));
   const scrollButtons = Array.from(document.querySelectorAll("[data-scroll]"));
-  const yearEl = document.getElementById("year");
 
   function getSavedLang() {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -168,30 +241,61 @@
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
-      if (dict[key]) el.textContent = dict[key];
+      if (dict[key]) {
+        el.textContent = dict[key];
+      }
     });
 
     if (langLabel) {
       langLabel.textContent = lang.toUpperCase();
     }
+
+    updateMeta(lang);
   }
 
-  function updateHeader() {
+  function updateMeta(lang) {
+    const title =
+      lang === "en"
+        ? "HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure"
+        : "HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure";
+
+    const description =
+      lang === "en"
+        ? "HOME.IAI.ONE is the central system portal of IAI, connecting Charter, Ecosystem, Community, and Infrastructure into a clear map with the right entry paths."
+        : "HOME.IAI.ONE là system portal trung tâm của toàn bộ hệ IAI: nơi kết nối Charter, Ecosystem, Community và Infrastructure thành một bản đồ rõ ràng, có trách nhiệm và có thể đi vào đúng cửa.";
+
+    document.title = title;
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+
+    if (metaDescription) metaDescription.setAttribute("content", description);
+    if (ogTitle) ogTitle.setAttribute("content", title);
+    if (ogDescription) ogDescription.setAttribute("content", description);
+    if (twitterTitle) twitterTitle.setAttribute("content", title);
+    if (twitterDescription) twitterDescription.setAttribute("content", description);
+  }
+
+  function updateHeaderState() {
     if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 8);
+    header.classList.toggle("is-scrolled", window.scrollY > 10);
   }
 
   function toggleMenu(forceState) {
     if (!menuToggle || !mobileMenu) return;
 
-    const open = typeof forceState === "boolean"
-      ? forceState
-      : !mobileMenu.classList.contains("is-open");
+    const isOpen =
+      typeof forceState === "boolean"
+        ? forceState
+        : !mobileMenu.classList.contains("is-open");
 
-    mobileMenu.classList.toggle("is-open", open);
-    menuToggle.classList.toggle("is-active", open);
-    menuToggle.setAttribute("aria-expanded", String(open));
-    body.style.overflow = open ? "hidden" : "";
+    mobileMenu.classList.toggle("is-open", isOpen);
+    menuToggle.classList.toggle("is-active", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    body.style.overflow = isOpen ? "hidden" : "";
   }
 
   function initMenu() {
@@ -204,11 +308,15 @@
     });
 
     window.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") toggleMenu(false);
+      if (event.key === "Escape") {
+        toggleMenu(false);
+      }
     });
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 860) toggleMenu(false);
+      if (window.innerWidth > 860) {
+        toggleMenu(false);
+      }
     });
   }
 
@@ -218,11 +326,37 @@
     if (!langToggle) return;
 
     langToggle.addEventListener("click", () => {
-      setLang(getSavedLang() === "vi" ? "en" : "vi");
+      const next = getSavedLang() === "vi" ? "en" : "vi";
+      setLang(next);
     });
   }
 
-  function animateCount(el) {
+  function initReveal() {
+    if (!revealEls.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      revealEls.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px"
+      }
+    );
+
+    revealEls.forEach((el) => observer.observe(el));
+  }
+
+  function animateCounter(el) {
     const target = Number(el.getAttribute("data-count") || "0");
     if (!Number.isFinite(target)) return;
 
@@ -232,8 +366,12 @@
     function frame(now) {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = String(Math.round(target * eased));
-      if (progress < 1) requestAnimationFrame(frame);
+      const value = Math.round(target * eased);
+      el.textContent = String(value);
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      }
     }
 
     requestAnimationFrame(frame);
@@ -243,44 +381,29 @@
     if (!counters.length) return;
 
     if (!("IntersectionObserver" in window)) {
-      counters.forEach(animateCount);
+      counters.forEach(animateCounter);
       return;
     }
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        animateCount(entry.target);
-        obs.unobserve(entry.target);
-      });
-    }, { threshold: 0.45 });
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.4
+      }
+    );
 
-    counters.forEach((counter) => observer.observe(counter));
-  }
-
-  function initReveal() {
-    if (!reveals.length) return;
-
-    if (!("IntersectionObserver" in window)) {
-      reveals.forEach((el) => el.classList.add("is-visible"));
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        obs.unobserve(entry.target);
-      });
-    }, {
-      threshold: 0.14,
-      rootMargin: "0px 0px -8% 0px"
-    });
-
-    reveals.forEach((el) => observer.observe(el));
+    counters.forEach((el) => observer.observe(el));
   }
 
   function initScrollButtons() {
+    if (!scrollButtons.length) return;
+
     scrollButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const selector = button.getAttribute("data-scroll");
@@ -300,16 +423,22 @@
     });
   }
 
+  function initYear() {
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+      yearEl.textContent = String(new Date().getFullYear());
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initLanguage();
     initMenu();
-    initCounters();
     initReveal();
+    initCounters();
     initScrollButtons();
-    updateHeader();
+    initYear();
+    updateHeaderState();
 
-    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
-    window.addEventListener("scroll", updateHeader, { passive: true });
+    window.addEventListener("scroll", updateHeaderState, { passive: true });
   });
 })();
