@@ -1,510 +1,306 @@
-<!doctype html>
-<html lang="vi">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#060816" />
-  <meta name="color-scheme" content="dark" />
-  <meta name="format-detection" content="telephone=no" />
+(function () {
+  "use strict";
 
-  <title>HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure</title>
-  <meta
-    name="description"
-    content="HOME.IAI.ONE là system portal trung tâm của toàn bộ hệ IAI: nơi kết nối Charter, Ecosystem, Community và Infrastructure thành một bản đồ rõ ràng, có trách nhiệm và có thể đi vào đúng cửa."
-  />
-  <meta
-    name="keywords"
-    content="IAI.ONE, HOME.IAI.ONE, system portal, charter, ecosystem, community, infrastructure, AI workflow, Flow, AGI portal"
-  />
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-  <link rel="canonical" href="https://home.iai.one/" />
+  const STORAGE_KEY = "home_iai_lang";
+  const doc = document.documentElement;
+  const body = document.body;
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="IAI.ONE" />
-  <meta property="og:title" content="HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure" />
-  <meta
-    property="og:description"
-    content="Portal trung tâm giúp người dùng hiểu IAI Charter, Ecosystem, Community và Infrastructure theo đúng cấu trúc toàn hệ."
-  />
-  <meta property="og:url" content="https://home.iai.one/" />
-  <meta property="og:image" content="https://home.iai.one/assets/og-home.jpg" />
-  <meta property="og:locale" content="vi_VN" />
+  const i18n = {
+    vi: {
+      heroEyebrow: "SYSTEM PORTAL",
+      heroTitle: "Cổng điều hướng trung tâm cho toàn bộ hệ IAI.",
+      heroLead:
+        "HOME.IAI.ONE không thay thế Charter, không vận hành ecosystem và không đóng vai trò platform. Đây là bản đồ hệ thống giúp người dùng nhìn thấy rõ Charter, Ecosystem, Community và Infrastructure của IAI trước khi đi vào chi tiết.",
+      heroPrimary: "Hiểu cấu trúc hệ",
+      heroSecondary: "Đọc Charter",
+      metric1: "Lớp hệ thống cốt lõi",
+      metric2: "Vai trò domain trung tâm",
+      metric3: "Đường đi vào hệ",
+      statusLabel1: "Root",
+      statusLabel2: "Primary Link",
+      statusLabel3: "Flagship Platform"
+    },
+    en: {
+      heroEyebrow: "SYSTEM PORTAL",
+      heroTitle: "The central navigation gateway for the full IAI system.",
+      heroLead:
+        "HOME.IAI.ONE does not replace the Charter, does not operate the ecosystem, and is not itself a platform. It is a system map that helps people clearly see the Charter, Ecosystem, Community, and Infrastructure of IAI before entering details.",
+      heroPrimary: "Understand the system",
+      heroSecondary: "Read the Charter",
+      metric1: "Core system layers",
+      metric2: "Central domain roles",
+      metric3: "Entry paths",
+      statusLabel1: "Root",
+      statusLabel2: "Primary Link",
+      statusLabel3: "Flagship Platform"
+    }
+  };
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure" />
-  <meta
-    name="twitter:description"
-    content="Portal trung tâm giúp người dùng nhìn thấy toàn bộ cấu trúc của hệ IAI và đi vào đúng lớp hệ thống."
-  />
-  <meta name="twitter:image" content="https://home.iai.one/assets/og-home.jpg" />
+  const header = document.querySelector("[data-header]");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const mobileMenu = document.querySelector("[data-mobile-menu]");
+  const langToggle = document.querySelector("[data-lang-toggle]");
+  const langLabel = document.querySelector("[data-lang-label]");
 
-  <link rel="stylesheet" href="./style.css" />
-  <script defer src="./app.js"></script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"HOME.IAI.ONE",
-    "url":"https://home.iai.one/",
-    "description":"HOME.IAI.ONE là system portal trung tâm của toàn bộ hệ IAI: nơi kết nối Charter, Ecosystem, Community và Infrastructure thành một bản đồ rõ ràng, có trách nhiệm và có thể đi vào đúng cửa.",
-    "publisher":{
-      "@type":"Organization",
-      "name":"IAI.ONE",
-      "url":"https://iai.one/"
+  function getSavedLang() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved === "en" ? "en" : "vi";
+    } catch (_) {
+      return "vi";
     }
   }
-  </script>
-</head>
-<body data-page="home">
-  <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
 
-  <div class="site-bg" aria-hidden="true">
-    <div class="bg-grid"></div>
-    <div class="bg-orb orb-a"></div>
-    <div class="bg-orb orb-b"></div>
-    <div class="bg-orb orb-c"></div>
-  </div>
+  function saveLang(lang) {
+    try {
+      localStorage.setItem(STORAGE_KEY, lang);
+    } catch (_) {}
+  }
 
-  <header class="site-header" data-header>
-    <div class="container header-inner">
-      <a class="brand" href="./index.html" aria-label="HOME.IAI.ONE">
-        <span class="brand-mark"></span>
-        <span class="brand-copy">
-          <strong>HOME.IAI.ONE</strong>
-          <em>System Portal</em>
-        </span>
-      </a>
+  function setLang(lang) {
+    const nextLang = lang === "en" ? "en" : "vi";
+    const dict = i18n[nextLang];
 
-      <nav class="desktop-nav" aria-label="Điều hướng chính">
-        <a href="./why.html">Why</a>
-        <a href="./layers.html">Layers</a>
-        <a href="./paths.html">Paths</a>
-        <a href="./platforms.html">Platforms</a>
-        <a href="./ecosystem.html">Ecosystem</a>
-        <a href="./boundaries.html">Boundaries</a>
-        <a href="./about.html">About</a>
-      </nav>
+    doc.lang = nextLang;
+    saveLang(nextLang);
 
-      <div class="header-actions">
-        <button class="lang-toggle" type="button" data-lang-toggle aria-label="Chuyển đổi ngôn ngữ">
-          <span data-lang-label>VI</span>
-        </button>
+    if (langLabel) {
+      langLabel.textContent = nextLang.toUpperCase();
+    }
 
-        <a class="button button-ghost desktop-only" href="https://flow.iai.one/" target="_blank" rel="noopener">
-          Open Flow
-        </a>
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (!key || !Object.prototype.hasOwnProperty.call(dict, key)) return;
+      el.textContent = dict[key];
+    });
 
-        <button
-          class="menu-toggle"
-          type="button"
-          data-menu-toggle
-          aria-expanded="false"
-          aria-controls="mobileMenu"
-          aria-label="Mở menu"
-        >
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
+    updateHomeMeta(nextLang);
+  }
 
-    <div class="mobile-menu" id="mobileMenu" data-mobile-menu>
-      <nav class="mobile-nav" aria-label="Điều hướng di động">
-        <a href="./why.html">Why</a>
-        <a href="./layers.html">Layers</a>
-        <a href="./paths.html">Paths</a>
-        <a href="./platforms.html">Platforms</a>
-        <a href="./ecosystem.html">Ecosystem</a>
-        <a href="./boundaries.html">Boundaries</a>
-        <a href="./about.html">About</a>
-        <a href="https://iai.one/" target="_blank" rel="noopener">Read Charter</a>
-        <a href="https://flow.iai.one/" target="_blank" rel="noopener">Open Flow</a>
-      </nav>
-    </div>
-  </header>
+  function updateHomeMeta(lang) {
+    if ((body.dataset.page || "").toLowerCase() !== "home") return;
 
-  <main id="main">
-    <section class="hero section" id="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="eyebrow" data-i18n="heroEyebrow">SYSTEM PORTAL</div>
-          <h1 data-i18n="heroTitle">
-            Cổng điều hướng trung tâm cho toàn bộ hệ IAI.
-          </h1>
-          <p class="hero-lead" data-i18n="heroLead">
-            HOME.IAI.ONE không thay thế Charter, không vận hành ecosystem và không đóng vai trò platform. Đây là bản đồ hệ thống giúp người dùng nhìn thấy rõ Charter, Ecosystem, Community và Infrastructure của IAI trước khi đi vào chi tiết.
-          </p>
+    const title =
+      lang === "en"
+        ? "HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure"
+        : "HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure";
 
-          <div class="hero-actions">
-            <a class="button button-primary" href="./layers.html" data-i18n="heroPrimary">Hiểu cấu trúc hệ</a>
-            <a class="button button-secondary" href="https://iai.one/" target="_blank" rel="noopener" data-i18n="heroSecondary">Đọc Charter</a>
-          </div>
+    const description =
+      lang === "en"
+        ? "HOME.IAI.ONE is the central system portal of IAI, connecting Charter, Ecosystem, Community, and Infrastructure into a clear map with the right entry paths."
+        : "HOME.IAI.ONE là system portal trung tâm của toàn bộ hệ IAI: nơi kết nối Charter, Ecosystem, Community và Infrastructure thành một bản đồ rõ ràng, có trách nhiệm và có thể đi vào đúng cửa.";
 
-          <ul class="hero-metrics" aria-label="Tóm tắt hệ thống">
-            <li class="metric-card reveal">
-              <strong data-count="4">0</strong>
-              <span data-i18n="metric1">Lớp hệ thống cốt lõi</span>
-            </li>
-            <li class="metric-card reveal">
-              <strong data-count="3">0</strong>
-              <span data-i18n="metric2">Vai trò domain trung tâm</span>
-            </li>
-            <li class="metric-card reveal">
-              <strong data-count="8">0</strong>
-              <span data-i18n="metric3">Đường đi vào hệ</span>
-            </li>
-          </ul>
-        </div>
+    document.title = title;
 
-        <div class="hero-visual reveal">
-          <div class="hero-panel glass">
-            <div class="panel-top">
-              <span class="window-dot"></span>
-              <span class="window-dot"></span>
-              <span class="window-dot"></span>
-            </div>
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
 
-            <div class="portal-core">
-              <div class="core-ring ring-a"></div>
-              <div class="core-ring ring-b"></div>
-              <div class="core-ring ring-c"></div>
+    if (metaDescription) metaDescription.setAttribute("content", description);
+    if (ogTitle) ogTitle.setAttribute("content", title);
+    if (ogDescription) ogDescription.setAttribute("content", description);
+    if (twitterTitle) twitterTitle.setAttribute("content", title);
+    if (twitterDescription) twitterDescription.setAttribute("content", description);
+  }
 
-              <div class="core-center">
-                <span>HOME</span>
-                <small>System Portal</small>
-              </div>
+  function updateHeaderState() {
+    if (!header) return;
+    header.classList.toggle("is-scrolled", window.scrollY > 10);
+  }
 
-              <button class="orbit-node node-1" type="button" onclick="window.location.href='./layers.html'">LAYERS</button>
-              <button class="orbit-node node-2" type="button" onclick="window.location.href='./paths.html'">PATHS</button>
-              <button class="orbit-node node-3" type="button" onclick="window.open('https://flow.iai.one/','_blank','noopener')">FLOW</button>
-              <button class="orbit-node node-4" type="button" onclick="window.location.href='./ecosystem.html'">MAP</button>
-              <button class="orbit-node node-5" type="button" onclick="window.location.href='./boundaries.html'">LIMITS</button>
-            </div>
+  function toggleMenu(force) {
+    if (!menuToggle || !mobileMenu) return;
 
-            <div class="portal-status">
-              <div class="status-box">
-                <span data-i18n="statusLabel1">Root</span>
-                <strong>Portal</strong>
-              </div>
-              <div class="status-box">
-                <span data-i18n="statusLabel2">Primary Link</span>
-                <strong>IAI.ONE Charter</strong>
-              </div>
-              <div class="status-box">
-                <span data-i18n="statusLabel3">Flagship Platform</span>
-                <strong>Flow</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    const shouldOpen =
+      typeof force === "boolean"
+        ? force
+        : !mobileMenu.classList.contains("is-open");
 
-    <section class="section section-intro">
-      <div class="container">
-        <div class="intro-banner glass reveal">
-          <div class="intro-copy">
-            <div class="eyebrow">HOME AS PORTAL</div>
-            <h2>Trang chủ này không lặp lại các trang con. Nó gom toàn bộ hệ thành một bản đồ rõ ràng.</h2>
-            <p>
-              Mỗi trang trong menu là một file độc lập với nội dung chuyên biệt. Trang chủ đóng vai trò cổng trung tâm để nhìn tổng thể, chọn đúng hướng đi và chuyển sang từng lớp nội dung mà không bị trộn vai trò.
-            </p>
-          </div>
+    mobileMenu.classList.toggle("is-open", shouldOpen);
+    menuToggle.classList.toggle("is-active", shouldOpen);
+    menuToggle.setAttribute("aria-expanded", String(shouldOpen));
+    body.style.overflow = shouldOpen ? "hidden" : "";
+  }
 
-          <div class="intro-mini-grid">
-            <div class="mini-box reveal">
-              <strong>01</strong>
-              <span>Read as a map</span>
-            </div>
-            <div class="mini-box reveal">
-              <strong>02</strong>
-              <span>Choose the right page</span>
-            </div>
-            <div class="mini-box reveal">
-              <strong>03</strong>
-              <span>Keep roles separated</span>
-            </div>
-            <div class="mini-box reveal">
-              <strong>04</strong>
-              <span>Enter with clarity</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  function initMenu() {
+    if (!menuToggle || !mobileMenu) return;
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">READING ORDER</div>
-          <h2>Thứ tự đọc nền cho toàn bộ hệ</h2>
-          <p>
-            Một người mới không nên đi thẳng vào platform hoặc ecosystem mà bỏ qua định nghĩa. Trang chủ này gợi ý thứ tự đọc nền để nhìn đúng toàn bộ hệ trước.
-          </p>
-        </div>
+    menuToggle.addEventListener("click", function () {
+      toggleMenu();
+    });
 
-        <div class="control-grid">
-          <article class="control-card reveal">
-            <span class="control-badge">01</span>
-            <h3>Why</h3>
-            <p>Hiểu vì sao hệ cần tồn tại trong bối cảnh bất ổn, tăng tốc AI và khủng hoảng niềm tin.</p>
-            <a href="./why.html">Open Why</a>
-          </article>
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", function () {
+        toggleMenu(false);
+      });
+    });
 
-          <article class="control-card reveal">
-            <span class="control-badge">02</span>
-            <h3>Layers</h3>
-            <p>Hiểu bốn lớp nền của hệ để không đọc sai vai trò giữa Charter, Portal, Infrastructure và Ecosystem.</p>
-            <a href="./layers.html">Open Layers</a>
-          </article>
+    window.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        toggleMenu(false);
+      }
+    });
 
-          <article class="control-card reveal">
-            <span class="control-badge">03</span>
-            <h3>Paths</h3>
-            <p>Chọn đường đi phù hợp với vai trò thực tế: observer, participant, builder, developer hoặc partner.</p>
-            <a href="./paths.html">Open Paths</a>
-          </article>
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 860) {
+        toggleMenu(false);
+      }
+    });
+  }
 
-          <article class="control-card reveal">
-            <span class="control-badge">04</span>
-            <h3>Platforms</h3>
-            <p>Phân biệt rõ IAI.ONE như Charter, HOME như Portal và FLOW như Infrastructure flagship.</p>
-            <a href="./platforms.html">Open Platforms</a>
-          </article>
+  function initLanguage() {
+    setLang(getSavedLang());
 
-          <article class="control-card reveal">
-            <span class="control-badge">05</span>
-            <h3>Ecosystem</h3>
-            <p>Nhìn nơi hệ đi vào đời sống thực qua ecosystem, community groups và local nodes.</p>
-            <a href="./ecosystem.html">Open Ecosystem</a>
-          </article>
-        </div>
-      </div>
-    </section>
+    if (!langToggle) return;
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">SYSTEM PAGES</div>
-          <h2>Trang chủ đồng bộ với toàn bộ các file nội dung đã tách riêng</h2>
-          <p>
-            Mỗi file trong hệ Home.iai.one giữ một chức năng chuyên biệt. Trang chủ chỉ tóm lược, định vị và điều hướng về đúng trang chi tiết.
-          </p>
-        </div>
+    langToggle.addEventListener("click", function () {
+      const next = getSavedLang() === "vi" ? "en" : "vi";
+      setLang(next);
+    });
+  }
 
-        <div class="platform-grid">
-          <article class="platform-card reveal">
-            <div class="platform-top">
-              <span class="platform-badge">Definition</span>
-              <h3>About</h3>
-            </div>
-            <p>Nơi chốt định nghĩa bản chất của IAI, vai trò của Charter, Boundaries, Roles và Participation.</p>
-            <a href="./about.html">Open page</a>
-          </article>
+  function initYear() {
+    document.querySelectorAll("#year").forEach((el) => {
+      el.textContent = String(new Date().getFullYear());
+    });
+  }
 
-          <article class="platform-card reveal">
-            <div class="platform-top">
-              <span class="platform-badge">Origin</span>
-              <h3>Why</h3>
-            </div>
-            <p>Nơi giải thích vì sao hệ cần tồn tại như một Charter Layer và vì sao Home cần tồn tại như Portal.</p>
-            <a href="./why.html">Open page</a>
-          </article>
+  function animateCounter(el) {
+    const target = Number(el.getAttribute("data-count") || "0");
+    if (!Number.isFinite(target)) return;
 
-          <article class="platform-card reveal">
-            <div class="platform-top">
-              <span class="platform-badge">Structure</span>
-              <h3>Layers</h3>
-            </div>
-            <p>Nơi giải thích bốn lớp cấu trúc nền để hệ không bị hiểu sai hoặc trộn vai trò.</p>
-            <a href="./layers.html">Open page</a>
-          </article>
+    const duration = 1200;
+    const start = performance.now();
 
-          <article class="platform-card reveal">
-            <div class="platform-top">
-              <span class="platform-badge">Routing</span>
-              <h3>Paths</h3>
-            </div>
-            <p>Nơi phân luồng người dùng theo vai trò thực tế, tránh đi sai cửa ngay từ đầu.</p>
-            <a href="./paths.html">Open page</a>
-          </article>
+    function frame(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (progress < 1) requestAnimationFrame(frame);
+    }
 
-          <article class="platform-card featured reveal">
-            <div class="platform-top">
-              <span class="platform-badge">Tools</span>
-              <h3>Platforms</h3>
-            </div>
-            <p>Nơi định vị các domain cốt lõi và lớp công cụ phục vụ hệ, đặc biệt là Flow.</p>
-            <ul class="platform-points">
-              <li>IAI.ONE as Charter</li>
-              <li>HOME as Portal</li>
-              <li>Flow as Infrastructure</li>
-            </ul>
-            <a href="./platforms.html">Open page</a>
-          </article>
+    requestAnimationFrame(frame);
+  }
 
-          <article class="platform-card reveal">
-            <div class="platform-top">
-              <span class="platform-badge">Life</span>
-              <h3>Ecosystem</h3>
-            </div>
-            <p>Nơi giải thích hệ đi vào đời sống thực qua community groups, local nodes và trách nhiệm địa phương.</p>
-            <a href="./ecosystem.html">Open page</a>
-          </article>
-        </div>
-      </div>
-    </section>
+  function initCounters() {
+    const counters = Array.from(document.querySelectorAll("[data-count]"));
+    if (!counters.length) return;
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">BOUNDARY RECAP</div>
-          <h2>Những ranh giới cốt lõi cần nhớ ngay từ trang chủ</h2>
-          <p>
-            Không cần đợi vào trang Boundaries mới hiểu nguyên tắc nền. Trang chủ phải nhắc lại đủ rõ để người dùng không đọc sai bản chất của toàn hệ ngay từ phút đầu.
-          </p>
-        </div>
+    if (!("IntersectionObserver" in window)) {
+      counters.forEach(animateCounter);
+      return;
+    }
 
-        <div class="mission-grid">
-          <article class="mission-card reveal">
-            <h3>Not a Financial System</h3>
-            <p>IAI không phải hệ tài chính, không phải nền tảng đầu tư và không được đọc như lời hứa lợi nhuận.</p>
-          </article>
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.45 }
+    );
 
-          <article class="mission-card reveal">
-            <h3>Not a Central Operator</h3>
-            <p>IAI không trực tiếp điều hành mọi ecosystem hay mọi dự án như một trung tâm quyền lực.</p>
-          </article>
+    counters.forEach((counter) => observer.observe(counter));
+  }
 
-          <article class="mission-card reveal">
-            <h3>Not a Vague Movement</h3>
-            <p>Đây không phải phong trào cảm xúc hay hệ nhận diện để phóng đại bản thân mà thiếu cấu trúc thật.</p>
-          </article>
+  function initReveal() {
+    const revealEls = Array.from(document.querySelectorAll(".reveal"));
+    if (!revealEls.length) return;
 
-          <article class="mission-card reveal">
-            <h3>Portal Is Not Charter</h3>
-            <p>HOME chỉ là cổng nhìn toàn hệ, không thay thế IAI.ONE như lớp Charter gốc.</p>
-          </article>
+    if (!("IntersectionObserver" in window)) {
+      revealEls.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
 
-          <article class="mission-card reveal">
-            <h3>Platform Is Not Identity</h3>
-            <p>Flow là lớp công cụ hạ tầng mạnh, nhưng không phải danh tính của toàn bộ hệ IAI.</p>
-          </article>
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px"
+      }
+    );
 
-          <article class="mission-card reveal">
-            <h3>Understanding Before Entry</h3>
-            <p>Hiểu định nghĩa và cấu trúc phải đến trước tham gia, tích hợp hay mở rộng kỹ thuật.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+    revealEls.forEach((el) => observer.observe(el));
+  }
 
-    <section class="section">
-      <div class="container">
-        <div class="ecosystem-shell glass reveal">
-          <div class="ecosystem-map">
-            <button class="ecosystem-node e1" type="button" onclick="window.location.href='./why.html'">WHY</button>
-            <button class="ecosystem-node e2" type="button" onclick="window.location.href='./layers.html'">LAYERS</button>
-            <button class="ecosystem-node e3" type="button" onclick="window.location.href='./paths.html'">PATHS</button>
-            <button class="ecosystem-node e4" type="button" onclick="window.location.href='./platforms.html'">PLATFORMS</button>
-            <button class="ecosystem-node e5" type="button" onclick="window.location.href='./ecosystem.html'">ECOSYSTEM</button>
-            <button class="ecosystem-node e6" type="button" onclick="window.location.href='./boundaries.html'">BOUNDARIES</button>
-            <button class="ecosystem-node e7" type="button" onclick="window.location.href='./about.html'">ABOUT</button>
-            <button class="ecosystem-node e8" type="button" onclick="window.open('https://iai.one/','_blank','noopener')">IAI.ONE</button>
+  function initInternalAnchorOffset() {
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", function (event) {
+        const href = link.getAttribute("href");
+        if (!href || href === "#") return;
 
-            <div class="ecosystem-center">
-              <strong>HOME MAP</strong>
-              <span>All core pages synchronized as one system portal</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        const target = document.querySelector(href);
+        if (!target) return;
 
-    <section class="section">
-      <div class="container">
-        <div class="cta-panel glass reveal">
-          <div class="cta-copy">
-            <div class="eyebrow">PRIMARY ACTIONS</div>
-            <h2>Ba cửa chính của toàn hệ đã được tách rõ.</h2>
-            <p>
-              Nếu cần lớp định nghĩa gốc, đọc IAI.ONE. Nếu cần bản đồ của toàn hệ và các trang chuyên đề, dùng Home. Nếu cần infrastructure flagship, mở Flow.
-            </p>
-          </div>
+        event.preventDefault();
 
-          <div class="cta-actions">
-            <a class="button button-primary" href="https://iai.one/" target="_blank" rel="noopener">
-              Read Charter
-            </a>
-            <a class="button button-secondary" href="https://flow.iai.one/" target="_blank" rel="noopener">
-              Open Flow
-            </a>
-            <a class="button button-ghost" href="./about.html">
-              Open About
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        const headerOffset = header ? header.offsetHeight : 0;
+        const top = target.getBoundingClientRect().top + window.scrollY - headerOffset - 10;
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <span class="logo-mark"></span>
-          <strong>HOME.IAI.ONE</strong>
-        </div>
-        <p>
-          HOME.IAI.ONE là portal trung tâm của toàn bộ hệ IAI, đồng bộ với toàn bộ các file nội dung riêng để người dùng nhìn đúng cấu trúc, chọn đúng cửa và giữ đúng vai trò của từng lớp.
-        </p>
-        <div class="footer-meta">
-          <span>System Portal for Responsible Co-Existence</span>
-        </div>
-      </div>
+        window.scrollTo({
+          top: top,
+          behavior: "smooth"
+        });
 
-      <div class="footer-col">
-        <h4>Pages</h4>
-        <nav>
-          <a href="./about.html">About</a>
-          <a href="./why.html">Why</a>
-          <a href="./layers.html">Layers</a>
-          <a href="./paths.html">Paths</a>
-          <a href="./platforms.html">Platforms</a>
-          <a href="./ecosystem.html">Ecosystem</a>
-          <a href="./boundaries.html">Boundaries</a>
-        </nav>
-      </div>
+        if (mobileMenu && mobileMenu.classList.contains("is-open")) {
+          toggleMenu(false);
+        }
+      });
+    });
+  }
 
-      <div class="footer-col">
-        <h4>Core</h4>
-        <nav>
-          <a href="https://iai.one/" target="_blank" rel="noopener">IAI.ONE</a>
-          <a href="https://flow.iai.one/" target="_blank" rel="noopener">Flow</a>
-          <a href="./index.html">Home</a>
-        </nav>
-      </div>
+  function initActiveDesktopNav() {
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".desktop-nav a, .mobile-nav a").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
 
-      <div class="footer-col">
-        <h4>Direction</h4>
-        <nav>
-          <a href="https://tranhatam.com/" target="_blank" rel="noopener">Trần Hà Tâm</a>
-          <a href="https://docs.iai.one/" target="_blank" rel="noopener">Docs</a>
-        </nav>
-      </div>
-    </div>
+      const normalized = href.replace("./", "");
+      if (
+        normalized === currentPath ||
+        (currentPath === "" && normalized === "index.html")
+      ) {
+        link.setAttribute("aria-current", "page");
+      }
+    });
+  }
 
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <span class="copyright">© <span id="year"></span> IAI.ONE</span>
-        <div class="footer-links">
-          <a href="https://iai.one/" target="_blank" rel="noopener">iai.one</a>
-          <a href="https://flow.iai.one/" target="_blank" rel="noopener">flow.iai.one</a>
-          <a href="https://home.iai.one/" target="_blank" rel="noopener">home.iai.one</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
+  function initExternalButtonsSafety() {
+    document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+      const rel = (link.getAttribute("rel") || "").trim();
+      if (!/\bnoopener\b/.test(rel)) {
+        link.setAttribute("rel", (rel ? rel + " " : "") + "noopener");
+      }
+    });
+  }
+
+  function boot() {
+    initLanguage();
+    initMenu();
+    initYear();
+    initCounters();
+    initReveal();
+    initInternalAnchorOffset();
+    initActiveDesktopNav();
+    initExternalButtonsSafety();
+    updateHeaderState();
+
+    window.addEventListener("scroll", updateHeaderState, { passive: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
