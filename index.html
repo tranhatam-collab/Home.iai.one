@@ -7,38 +7,37 @@
   <meta name="color-scheme" content="dark" />
   <meta name="format-detection" content="telephone=no" />
 
-  <title>HOME.IAI.ONE — AGI Portal for Human Intelligence Infrastructure</title>
+  <title>HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure</title>
   <meta
     name="description"
-    content="HOME.IAI.ONE là portal trung tâm của hệ sinh thái IAI.ONE, kết nối AGI architecture, workflow infrastructure, agent systems, knowledge universe và các nền tảng cốt lõi."
+    content="HOME.IAI.ONE là system portal trung tâm của toàn bộ hệ IAI: nơi kết nối Charter, Ecosystem, Community và Infrastructure thành một bản đồ rõ ràng, có trách nhiệm và có thể đi vào đúng cửa."
   />
   <meta
     name="keywords"
-    content="IAI.ONE, home.iai.one, AGI portal, AI workflow, agent systems, AI infrastructure, knowledge universe, Flow IAI, Human Intelligence Infrastructure"
+    content="IAI.ONE, HOME.IAI.ONE, system portal, charter, ecosystem, community, infrastructure, AI workflow, Flow, AGI portal"
   />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <link rel="canonical" href="https://home.iai.one/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="IAI.ONE" />
-  <meta property="og:title" content="HOME.IAI.ONE — AGI Portal for Human Intelligence Infrastructure" />
+  <meta property="og:title" content="HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure" />
   <meta
     property="og:description"
-    content="Portal trung tâm cho AGI architecture, workflow systems, knowledge universe và hệ sinh thái IAI.ONE."
+    content="Portal trung tâm giúp người dùng hiểu IAI Charter, Ecosystem, Community và Infrastructure theo đúng cấu trúc toàn hệ."
   />
   <meta property="og:url" content="https://home.iai.one/" />
   <meta property="og:image" content="https://home.iai.one/assets/og-home.jpg" />
   <meta property="og:locale" content="vi_VN" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="HOME.IAI.ONE — AGI Portal for Human Intelligence Infrastructure" />
+  <meta name="twitter:title" content="HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure" />
   <meta
     name="twitter:description"
-    content="Portal trung tâm cho AGI architecture, workflow systems, knowledge universe và hệ sinh thái IAI.ONE."
+    content="Portal trung tâm giúp người dùng nhìn thấy toàn bộ cấu trúc của hệ IAI và đi vào đúng lớp hệ thống."
   />
   <meta name="twitter:image" content="https://home.iai.one/assets/og-home.jpg" />
 
-  <link rel="preconnect" href="https://flow.iai.one" />
   <link rel="stylesheet" href="./style.css" />
   <script defer src="./app.js"></script>
 
@@ -48,7 +47,7 @@
     "@type": "WebSite",
     "name": "HOME.IAI.ONE",
     "url": "https://home.iai.one/",
-    "description": "Portal trung tâm cho AGI architecture, workflow infrastructure, agent systems, knowledge universe và hệ sinh thái IAI.ONE.",
+    "description": "HOME.IAI.ONE là system portal trung tâm của toàn bộ hệ IAI: nơi kết nối Charter, Ecosystem, Community và Infrastructure thành một bản đồ rõ ràng, có trách nhiệm và có thể đi vào đúng cửa.",
     "publisher": {
       "@type": "Organization",
       "name": "IAI.ONE",
@@ -57,7 +56,7 @@
   }
   </script>
 </head>
-<body>
+<body data-page="home">
   <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
 
   <div class="site-bg" aria-hidden="true">
@@ -73,17 +72,18 @@
         <span class="brand-mark"></span>
         <span class="brand-copy">
           <strong>HOME.IAI.ONE</strong>
-          <em>AGI Portal</em>
+          <em>System Portal</em>
         </span>
       </a>
 
       <nav class="desktop-nav" aria-label="Điều hướng chính">
         <a href="#hero">Portal</a>
-        <a href="#architecture">Architecture</a>
+        <a href="#why">Why</a>
+        <a href="#layers">Layers</a>
+        <a href="#paths">Paths</a>
         <a href="#platforms">Platforms</a>
-        <a href="#flow-focus">Flow</a>
-        <a href="#universe">Universe</a>
-        <a href="#mission">Mission</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#boundaries">Boundaries</a>
       </nav>
 
       <div class="header-actions">
@@ -112,11 +112,14 @@
     <div class="mobile-menu" id="mobileMenu" data-mobile-menu>
       <nav class="mobile-nav" aria-label="Điều hướng di động">
         <a href="#hero">Portal</a>
-        <a href="#architecture">Architecture</a>
+        <a href="#why">Why</a>
+        <a href="#layers">Layers</a>
+        <a href="#paths">Paths</a>
         <a href="#platforms">Platforms</a>
-        <a href="#flow-focus">Flow</a>
-        <a href="#universe">Universe</a>
-        <a href="#mission">Mission</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#boundaries">Boundaries</a>
+        <a href="./about.html">About</a>
+        <a href="https://iai.one/" target="_blank" rel="noopener">Read Charter</a>
         <a href="https://flow.iai.one/" target="_blank" rel="noopener">Open Flow</a>
       </nav>
     </div>
@@ -126,34 +129,32 @@
     <section class="hero section" id="hero">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <div class="eyebrow" data-i18n="heroEyebrow">HUMAN INTELLIGENCE INFRASTRUCTURE</div>
+          <div class="eyebrow" data-i18n="heroEyebrow">SYSTEM PORTAL</div>
           <h1 data-i18n="heroTitle">
-            Portal trung tâm cho AGI architecture, workflow systems và hệ sinh thái trí tuệ thế hệ mới.
+            Cổng điều hướng trung tâm cho toàn bộ hệ IAI.
           </h1>
           <p class="hero-lead" data-i18n="heroLead">
-            HOME.IAI.ONE không chỉ là trang chủ. Đây là lớp định vị chiến lược cho toàn bộ hệ IAI.ONE:
-            nơi kết nối orchestration, platform launcher, knowledge universe, mission systems và những cổng vận hành quan trọng nhất.
+            HOME.IAI.ONE không thay thế Charter, không vận hành ecosystem và không đóng vai trò platform.
+            Đây là bản đồ hệ thống giúp người dùng nhìn thấy rõ Charter, Ecosystem, Community và Infrastructure của IAI trước khi đi vào chi tiết.
           </p>
 
           <div class="hero-actions">
-            <a class="button button-primary" href="#platforms" data-i18n="heroPrimary">Khám phá portal</a>
-            <a class="button button-secondary" href="https://flow.iai.one/" target="_blank" rel="noopener" data-i18n="heroSecondary">
-              Mở IAI Flow
-            </a>
+            <a class="button button-primary" href="#layers" data-i18n="heroPrimary">Hiểu cấu trúc hệ</a>
+            <a class="button button-secondary" href="https://iai.one/" target="_blank" rel="noopener" data-i18n="heroSecondary">Đọc Charter</a>
           </div>
 
           <ul class="hero-metrics" aria-label="Tóm tắt hệ thống">
             <li class="metric-card reveal">
-              <strong data-count="12">0</strong>
-              <span data-i18n="metric1">Lớp vận hành cốt lõi</span>
+              <strong data-count="4">0</strong>
+              <span data-i18n="metric1">Lớp hệ thống cốt lõi</span>
             </li>
             <li class="metric-card reveal">
-              <strong data-count="9">0</strong>
-              <span data-i18n="metric2">Portal và nền tảng liên kết</span>
+              <strong data-count="3">0</strong>
+              <span data-i18n="metric2">Vai trò domain trung tâm</span>
             </li>
             <li class="metric-card reveal">
-              <strong data-count="99">0</strong>
-              <span data-i18n="metric3">Khả năng mở rộng theo cụm</span>
+              <strong data-count="8">0</strong>
+              <span data-i18n="metric3">Đường đi vào hệ</span>
             </li>
           </ul>
         </div>
@@ -172,29 +173,29 @@
               <div class="core-ring ring-c"></div>
 
               <div class="core-center">
-                <span>IAI</span>
-                <small>AGI Portal</small>
+                <span>HOME</span>
+                <small>System Portal</small>
               </div>
 
-              <button class="orbit-node node-1" type="button" data-scroll="#architecture">ARCH</button>
-              <button class="orbit-node node-2" type="button" data-scroll="#platforms">APPS</button>
-              <button class="orbit-node node-3" type="button" data-scroll="#flow-focus">FLOW</button>
-              <button class="orbit-node node-4" type="button" data-scroll="#universe">KNOW</button>
-              <button class="orbit-node node-5" type="button" data-scroll="#mission">OS</button>
+              <button class="orbit-node node-1" type="button" data-scroll="#layers">LAYERS</button>
+              <button class="orbit-node node-2" type="button" data-scroll="#paths">PATHS</button>
+              <button class="orbit-node node-3" type="button" data-scroll="#platforms">FLOW</button>
+              <button class="orbit-node node-4" type="button" data-scroll="#ecosystem">MAP</button>
+              <button class="orbit-node node-5" type="button" data-scroll="#boundaries">LIMITS</button>
             </div>
 
             <div class="portal-status">
               <div class="status-box">
-                <span data-i18n="statusLabel1">Runtime</span>
-                <strong>Stable</strong>
+                <span data-i18n="statusLabel1">Root</span>
+                <strong>Portal</strong>
               </div>
               <div class="status-box">
-                <span data-i18n="statusLabel2">Mode</span>
-                <strong>Production</strong>
+                <span data-i18n="statusLabel2">Primary Link</span>
+                <strong>IAI.ONE Charter</strong>
               </div>
               <div class="status-box">
-                <span data-i18n="statusLabel3">Access</span>
-                <strong>Public Portal</strong>
+                <span data-i18n="statusLabel3">Flagship Platform</span>
+                <strong>Flow</strong>
               </div>
             </div>
           </div>
@@ -202,98 +203,130 @@
       </div>
     </section>
 
-    <section class="section section-intro">
+    <section class="section section-intro" id="why">
       <div class="container">
         <div class="intro-banner glass reveal">
           <div class="intro-copy">
-            <div class="eyebrow">PORTAL LOGIC</div>
-            <h2 data-i18n="introTitle">Một portal AGI mạnh phải rõ thứ tự đi vào hệ thống</h2>
-            <p data-i18n="introLead">
-              Người dùng phải nhìn ra ngay đâu là tầng định vị, đâu là tầng orchestration, đâu là tầng platform launcher,
-              đâu là lớp tri thức, đâu là mission layer và đâu là những cổng quan trọng nhất để bắt đầu.
+            <div class="eyebrow" data-i18n="whyEyebrow">WHY THIS SYSTEM EXISTS</div>
+            <h2 data-i18n="whyTitle">Vì con người cần một cách nhìn có cấu trúc trước khi tham gia bất kỳ hệ nào</h2>
+            <p data-i18n="whyLead">
+              Trong thời đại bất ổn, AI tăng tốc và niềm tin xã hội phân mảnh, việc thiếu ranh giới, thiếu định nghĩa và thiếu bản đồ hệ thống khiến người dùng dễ hiểu sai mọi thứ.
+              HOME tồn tại để làm rõ cấu trúc trước khi mời ai đó bước vào.
             </p>
           </div>
 
           <div class="intro-mini-grid">
             <div class="mini-box reveal">
               <strong>01</strong>
-              <span>Identity</span>
+              <span>Clarity before participation</span>
             </div>
             <div class="mini-box reveal">
               <strong>02</strong>
-              <span>Gateway</span>
+              <span>Structure before scaling</span>
             </div>
             <div class="mini-box reveal">
               <strong>03</strong>
-              <span>Orchestration</span>
+              <span>Responsibility before promise</span>
             </div>
             <div class="mini-box reveal">
               <strong>04</strong>
-              <span>Universe</span>
+              <span>Understanding before action</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="architecture">
+    <section class="section" id="layers">
       <div class="container">
         <div class="section-head reveal">
-          <div class="eyebrow" data-i18n="architectureEyebrow">AGI ARCHITECTURE</div>
-          <h2 data-i18n="architectureTitle">Kiến trúc nhiều lớp cho một portal AGI có thể mở rộng thật sự</h2>
-          <p data-i18n="architectureLead">
-            Không chỉ là landing page. Đây phải là một portal vận hành được: rõ tầng định vị, rõ tầng orchestration,
-            rõ platform launcher, rõ knowledge layer và rõ mission layer.
+          <div class="eyebrow" data-i18n="layersEyebrow">THE 4 LAYERS OF IAI</div>
+          <h2 data-i18n="layersTitle">Toàn hệ IAI chỉ nên được hiểu đúng khi nhìn theo từng lớp</h2>
+          <p data-i18n="layersLead">
+            Nếu trộn Charter, Ecosystem, Community và Infrastructure thành một khối, toàn bộ hệ sẽ bị hiểu sai. HOME phải làm rõ ranh giới giữa các lớp này.
           </p>
         </div>
 
         <div class="architecture-grid">
           <article class="feature-card reveal">
             <span class="feature-index">01</span>
-            <h3 data-i18n="arch1Title">Identity Layer</h3>
-            <p data-i18n="arch1Text">
-              HOME.IAI.ONE phải là điểm vào chiến lược của toàn bộ hệ sinh thái, không phải trang giới thiệu chung chung.
+            <h3 data-i18n="layer1Title">Charter Layer</h3>
+            <p data-i18n="layer1Text">
+              IAI.ONE giữ nguyên tắc, ranh giới, ngôn ngữ chung và chuẩn minh bạch. Đây là tầng gốc.
             </p>
           </article>
 
           <article class="feature-card reveal">
             <span class="feature-index">02</span>
-            <h3 data-i18n="arch2Title">Platform Gateway</h3>
-            <p data-i18n="arch2Text">
-              Mọi nền tảng cốt lõi phải được mở như một launchpad có vai trò, trật tự và định nghĩa rõ ràng.
+            <h3 data-i18n="layer2Title">Portal Layer</h3>
+            <p data-i18n="layer2Text">
+              HOME.IAI.ONE là nơi nhìn thấy toàn hệ, hiểu toàn hệ và đi vào đúng cửa.
             </p>
           </article>
 
           <article class="feature-card reveal">
             <span class="feature-index">03</span>
-            <h3 data-i18n="arch3Title">AGI Orchestration</h3>
-            <p data-i18n="arch3Text">
-              Flow, runtime, agent network và automation phải đứng thành một lớp chiến lược riêng.
+            <h3 data-i18n="layer3Title">Infrastructure Layer</h3>
+            <p data-i18n="layer3Text">
+              Các platform như Flow tồn tại để phục vụ vận hành, automation, workflow và hạ tầng kỹ thuật.
             </p>
           </article>
 
           <article class="feature-card reveal">
             <span class="feature-index">04</span>
-            <h3 data-i18n="arch4Title">Knowledge Universe</h3>
-            <p data-i18n="arch4Text">
-              Bản đồ tri thức, research directions và các hệ tri thức ứng dụng cần có không gian hiển thị riêng.
+            <h3 data-i18n="layer4Title">Ecosystem Layer</h3>
+            <p data-i18n="layer4Text">
+              Đây là nơi các ecosystem, community groups và local nodes vận hành trong thực tế.
             </p>
           </article>
+        </div>
+      </div>
+    </section>
 
-          <article class="feature-card reveal">
-            <span class="feature-index">05</span>
-            <h3 data-i18n="arch5Title">Human Mission OS</h3>
-            <p data-i18n="arch5Text">
-              Portal phải thể hiện mục tiêu cuối cùng là mở rộng năng lực con người, không chỉ phô diễn công nghệ.
-            </p>
+    <section class="section" id="paths">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow" data-i18n="pathsEyebrow">ENTRY PATHS</div>
+          <h2 data-i18n="pathsTitle">Mỗi người nên vào hệ theo đúng vai trò của mình</h2>
+          <p data-i18n="pathsLead">
+            HOME không chỉ hiển thị link. Nó phải phân luồng để người xem không đi sai cửa ngay từ đầu.
+          </p>
+        </div>
+
+        <div class="control-grid">
+          <article class="control-card reveal">
+            <span class="control-badge">01</span>
+            <h3 data-i18n="path1Title">Observer</h3>
+            <p data-i18n="path1Text">Người mới cần hiểu hệ trước, không cam kết, không bị kéo vào sớm.</p>
+            <a href="https://iai.one/" target="_blank" rel="noopener">Read Charter</a>
           </article>
 
-          <article class="feature-card reveal">
-            <span class="feature-index">06</span>
-            <h3 data-i18n="arch6Title">Production Shell</h3>
-            <p data-i18n="arch6Text">
-              Desktop, mobile, nav, chuyển động, chiều sâu thị giác và semantic structure đều phải đạt chuẩn production.
-            </p>
+          <article class="control-card reveal">
+            <span class="control-badge">02</span>
+            <h3 data-i18n="path2Title">Participant</h3>
+            <p data-i18n="path2Text">Người muốn tham gia cộng đồng cần hiểu Participation, Community và Ecosystem.</p>
+            <a href="https://iai.one/" target="_blank" rel="noopener">Explore IAI</a>
+          </article>
+
+          <article class="control-card reveal">
+            <span class="control-badge">03</span>
+            <h3 data-i18n="path3Title">Builder</h3>
+            <p data-i18n="path3Text">Người xây hệ cần hiểu Charter, Boundaries và cách các lớp liên kết với nhau.</p>
+            <a href="#layers">View Layers</a>
+          </article>
+
+          <article class="control-card reveal">
+            <span class="control-badge">04</span>
+            <h3 data-i18n="path4Title">Developer</h3>
+            <p data-i18n="path4Text">Người phát triển công nghệ nên đi vào Flow như lớp platform hạ tầng, không nhầm nó là Charter.</p>
+            <a href="https://flow.iai.one/" target="_blank" rel="noopener">Open Flow</a>
+          </article>
+
+          <article class="control-card reveal">
+            <span class="control-badge">05</span>
+            <h3 data-i18n="path5Title">Partner</h3>
+            <p data-i18n="path5Text">Đối tác cần thấy rõ ranh giới giữa protocol, ecosystem và các platform chuyên biệt.</p>
+            <a href="#boundaries">See Boundaries</a>
           </article>
         </div>
       </div>
@@ -303,9 +336,9 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="eyebrow" data-i18n="platformsEyebrow">CORE PLATFORMS</div>
-          <h2 data-i18n="platformsTitle">Launchpad trung tâm cho các nền tảng cốt lõi</h2>
+          <h2 data-i18n="platformsTitle">Các platform không thay thế Charter. Chúng phục vụ hệ</h2>
           <p data-i18n="platformsLead">
-            Đây là nơi người dùng hiểu ngay hệ sinh thái đang đi đâu, mỗi nền tảng làm gì và nên bước vào đâu trước.
+            Đây là các lớp hạ tầng hoặc bề mặt công cụ đang giúp hệ hiển thị, tổ chức hoặc vận hành rõ ràng hơn.
           </p>
         </div>
 
@@ -316,210 +349,121 @@
               <h3>IAI Flow</h3>
             </div>
             <p data-i18n="flowCardText">
-              Hạ tầng orchestration cho workflow AI, agent network, node systems và runtime automation.
+              Nền tảng orchestration cho AI workflows, agents, runtime và data pipelines ở production scale.
             </p>
             <ul class="platform-points">
               <li>Workflow engine</li>
-              <li>Node and agent graph</li>
-              <li>Runtime execution</li>
+              <li>Agent runtime</li>
+              <li>Documentation and nodes</li>
             </ul>
             <a href="https://flow.iai.one/" target="_blank" rel="noopener">Open platform</a>
           </article>
 
           <article class="platform-card reveal">
             <div class="platform-top">
-              <span class="platform-badge">Intelligence</span>
-              <h3>LifeCode</h3>
+              <span class="platform-badge">Root</span>
+              <h3>IAI.ONE</h3>
             </div>
-            <p>Human life intelligence system for timeline, behavior, mission, risk and decision mapping.</p>
-            <a href="https://lifecode.iai.one/" target="_blank" rel="noopener">Open platform</a>
+            <p data-i18n="iaiCardText">
+              Charter site công bố bản chất, nguyên tắc, ranh giới và cấu trúc của hệ IAI.
+            </p>
+            <a href="https://iai.one/" target="_blank" rel="noopener">Open charter</a>
           </article>
 
           <article class="platform-card reveal">
             <div class="platform-top">
-              <span class="platform-badge">Community</span>
-              <h3>Nhà Chung</h3>
+              <span class="platform-badge">Portal</span>
+              <h3>Home</h3>
             </div>
-            <p>Community operating system for living, learning, working, investing and long term co-building.</p>
-            <a href="https://nhachung.org/" target="_blank" rel="noopener">Open platform</a>
-          </article>
-
-          <article class="platform-card reveal">
-            <div class="platform-top">
-              <span class="platform-badge">Network</span>
-              <h3>Muôn Nơi</h3>
-            </div>
-            <p>Global Vietnamese dialogue, trust, movement and ecosystem connection layer.</p>
-            <a href="https://muonnoi.org/" target="_blank" rel="noopener">Open platform</a>
-          </article>
-
-          <article class="platform-card reveal">
-            <div class="platform-top">
-              <span class="platform-badge">Story</span>
-              <h3>DSTS</h3>
-            </div>
-            <p>Storytelling and honoring platform for Vietnamese talent, stars, creators and global builders.</p>
-            <a href="https://duongsaotoasang.com/" target="_blank" rel="noopener">Open platform</a>
-          </article>
-
-          <article class="platform-card reveal">
-            <div class="platform-top">
-              <span class="platform-badge">Founder</span>
-              <h3>Tran Ha Tam</h3>
-            </div>
-            <p>Founder profile, philosophy, projects, vision and long horizon ecosystem direction.</p>
-            <a href="https://tranhatam.com/" target="_blank" rel="noopener">Open platform</a>
+            <p data-i18n="homeCardText">
+              System portal giúp người dùng nhìn toàn cảnh hệ và đi vào đúng lớp phù hợp.
+            </p>
+            <a href="#hero">Current page</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="flow-focus">
-      <div class="container flow-grid">
-        <div class="flow-copy reveal">
-          <div class="eyebrow" data-i18n="flowEyebrow">FLAGSHIP SYSTEM</div>
-          <h2 data-i18n="flowTitle">IAI Flow phải hiện ra như engine trung tâm của thời đại workflow thông minh</h2>
-          <p data-i18n="flowLead">
-            Khi người dùng vào HOME.IAI.ONE, họ phải nhìn thấy ngay Flow là lớp orchestration có khả năng kết nối AI,
-            logic vận hành, runtime và hệ tác nhân trong cùng một kiến trúc.
-          </p>
-
-          <div class="flow-checklist">
-            <div class="check-item reveal">
-              <strong>Workflow Engine</strong>
-              <span data-i18n="flowPoint1">Thiết kế, chạy và quan sát execution graph theo mô hình mở rộng dài hạn.</span>
-            </div>
-            <div class="check-item reveal">
-              <strong>Agent Network</strong>
-              <span data-i18n="flowPoint2">Điều phối nhiều agent trong cùng pipeline thay vì dùng AI rời rạc từng điểm.</span>
-            </div>
-            <div class="check-item reveal">
-              <strong>Developer Surface</strong>
-              <span data-i18n="flowPoint3">Mở đường vào docs, modules, node building và logic tích hợp hệ sinh thái.</span>
-            </div>
-          </div>
-
-          <a class="button button-primary" href="https://flow.iai.one/" target="_blank" rel="noopener" data-i18n="flowButton">
-            Truy cập IAI Flow
-          </a>
-        </div>
-
-        <div class="flow-visual reveal">
-          <div class="flow-board glass">
-            <div class="board-row">
-              <div class="board-box">
-                <span>INPUT</span>
-                <strong>Data • Prompt • Event</strong>
-              </div>
-              <div class="board-arrow"></div>
-              <div class="board-box active">
-                <span>FLOW</span>
-                <strong>Route • Logic • Runtime</strong>
-              </div>
-            </div>
-
-            <div class="board-row">
-              <div class="board-box">
-                <span>AGENTS</span>
-                <strong>Planner • Operator • Evaluator</strong>
-              </div>
-              <div class="board-arrow"></div>
-              <div class="board-box">
-                <span>OUTPUT</span>
-                <strong>Action • Report • Portal State</strong>
-              </div>
-            </div>
-
-            <div class="board-footer">
-              <span>Portal ready orchestration shell</span>
-              <strong>flow.iai.one</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="universe">
+    <section class="section" id="ecosystem">
       <div class="container">
         <div class="section-head reveal">
-          <div class="eyebrow" data-i18n="universeEyebrow">KNOWLEDGE UNIVERSE</div>
-          <h2 data-i18n="universeTitle">Bản đồ tri thức không gian rộng cho AGI, con người và nền văn minh</h2>
-          <p data-i18n="universeLead">
-            Phần này không cần giả 3D nặng nề, mà cần tạo được cảm giác về một hệ tri thức sống, có chiều sâu,
-            có lớp, có khả năng mở rộng.
+          <div class="eyebrow" data-i18n="ecosystemEyebrow">ECOSYSTEM MAP</div>
+          <h2 data-i18n="ecosystemTitle">Bản đồ tổng thể giữa Charter, Portal, Platform và Community</h2>
+          <p data-i18n="ecosystemLead">
+            Đây không phải sơ đồ ảo. Đây là cách toàn hệ nên được hiểu để tránh mọi nhầm lẫn về vai trò.
           </p>
         </div>
 
-        <div class="universe-map glass reveal">
-          <button class="universe-node u1" type="button">AGI</button>
-          <button class="universe-node u2" type="button">FLOW</button>
-          <button class="universe-node u3" type="button">LIFECODE</button>
-          <button class="universe-node u4" type="button">COMMUNITY</button>
-          <button class="universe-node u5" type="button">RESEARCH</button>
-          <button class="universe-node u6" type="button">OS</button>
-          <button class="universe-node u7" type="button">MISSION</button>
-          <button class="universe-node u8" type="button">PORTALS</button>
-          <button class="universe-node u9" type="button">DATA</button>
+        <div class="ecosystem-shell glass reveal">
+          <div class="ecosystem-map">
+            <button class="ecosystem-node e1" type="button" data-scroll="#platforms">FLOW</button>
+            <button class="ecosystem-node e2" type="button" data-scroll="#layers">HOME</button>
+            <button class="ecosystem-node e3" type="button" onclick="window.open('https://iai.one/','_blank','noopener')">IAI.ONE</button>
+            <button class="ecosystem-node e4" type="button" data-scroll="#paths">PATHS</button>
+            <button class="ecosystem-node e5" type="button" data-scroll="#boundaries">BOUNDARIES</button>
+            <button class="ecosystem-node e6" type="button" data-scroll="#why">WHY</button>
+            <button class="ecosystem-node e7" type="button" data-scroll="#layers">CHARTER</button>
+            <button class="ecosystem-node e8" type="button" data-scroll="#paths">COMMUNITY</button>
 
-          <div class="universe-center">
-            <strong>IAI.UNIVERSE</strong>
-            <span data-i18n="universeCenter">A living map of intelligence systems</span>
+            <div class="ecosystem-center">
+              <strong>IAI SYSTEM</strong>
+              <span data-i18n="ecosystemCenter">Charter, Portal, Community and Infrastructure</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="mission">
+    <section class="section" id="boundaries">
       <div class="container">
         <div class="section-head reveal">
-          <div class="eyebrow" data-i18n="missionEyebrow">MISSION LAYER</div>
-          <h2 data-i18n="missionTitle">Một portal AGI không chỉ đẹp, mà phải rõ cấu trúc, rõ vai trò và rõ tương lai</h2>
-          <p data-i18n="missionLead">
-            HOME.IAI.ONE là cổng điều hướng chiến lược cho toàn bộ hệ sinh thái IAI, nơi người dùng, developer,
-            founder và đối tác có thể hiểu, khám phá và đi vào từng lớp vận hành quan trọng nhất.
+          <div class="eyebrow" data-i18n="boundariesEyebrow">BOUNDARIES</div>
+          <h2 data-i18n="boundariesTitle">Một hệ đúng phải dám nói rõ mình không phải gì</h2>
+          <p data-i18n="boundariesLead">
+            HOME phải nhắc lại ranh giới cốt lõi để người dùng không đọc sai bản chất của hệ.
           </p>
         </div>
 
         <div class="mission-grid">
           <article class="mission-card reveal">
-            <h3 data-i18n="missionCard1Title">Strategic Entry Point</h3>
-            <p data-i18n="missionCard1Text">
-              Trang chủ phải đóng vai trò như lớp định hướng đầu tiên cho toàn bộ hệ IAI, không chỉ là landing page giới thiệu.
+            <h3 data-i18n="boundary1Title">Not a Financial System</h3>
+            <p data-i18n="boundary1Text">
+              IAI không phải hệ tài chính, không phải nền tảng đầu tư và không hứa hẹn lợi nhuận.
             </p>
           </article>
 
           <article class="mission-card reveal">
-            <h3 data-i18n="missionCard2Title">Operational Clarity</h3>
-            <p data-i18n="missionCard2Text">
-              Mọi lớp trong hệ phải có định nghĩa, vai trò và đường dẫn rõ ràng.
+            <h3 data-i18n="boundary2Title">Not an Operator of Projects</h3>
+            <p data-i18n="boundary2Text">
+              IAI không trực tiếp vận hành dự án, không quản lý con người và không giữ tài sản thay cho ecosystem.
             </p>
           </article>
 
           <article class="mission-card reveal">
-            <h3 data-i18n="missionCard3Title">Human Directed AGI</h3>
-            <p data-i18n="missionCard3Text">
-              AGI phải vận hành dưới định hướng của con người, minh bạch và có thể kiểm soát.
+            <h3 data-i18n="boundary3Title">Not a Belief System</h3>
+            <p data-i18n="boundary3Text">
+              IAI không phải hệ niềm tin, không phải phong trào và không thay thế trách nhiệm cá nhân.
             </p>
           </article>
 
           <article class="mission-card reveal">
-            <h3 data-i18n="missionCard4Title">Portal Architecture</h3>
-            <p data-i18n="missionCard4Text">
-              HOME.IAI.ONE phải là cổng vào toàn bộ ecosystem, kết nối Flow, runtime systems, governance và public knowledge.
+            <h3 data-i18n="boundary4Title">Understanding Before Participation</h3>
+            <p data-i18n="boundary4Text">
+              Mọi người nên hiểu cấu trúc hệ trước khi nghĩ đến tham gia, xây dựng hay tích hợp.
             </p>
           </article>
 
           <article class="mission-card reveal">
-            <h3 data-i18n="missionCard5Title">Trust By Design</h3>
-            <p data-i18n="missionCard5Text">
-              Bảo mật, quyền riêng tư, xác thực nguồn dữ liệu và khả năng kiểm chứng phải nằm ở tầng thiết kế đầu tiên.
+            <h3 data-i18n="boundary5Title">Clear Roles Across Layers</h3>
+            <p data-i18n="boundary5Text">
+              Charter là Charter. Portal là Portal. Platform là Platform. Ecosystem là Ecosystem.
             </p>
           </article>
 
           <article class="mission-card reveal">
-            <h3 data-i18n="missionCard6Title">Civilization Scale Thinking</h3>
-            <p data-i18n="missionCard6Text">
-              Portal phải thể hiện tầm nhìn hạ tầng trí tuệ cho cá nhân, cộng đồng, tổ chức và xã hội tương lai.
+            <h3 data-i18n="boundary6Title">Responsibility Over Hype</h3>
+            <p data-i18n="boundary6Text">
+              Hệ được giữ bằng ranh giới, trách nhiệm và tính bền vững, không phải bằng hưng phấn ngắn hạn.
             </p>
           </article>
         </div>
@@ -530,23 +474,22 @@
       <div class="container">
         <div class="cta-panel glass reveal">
           <div class="cta-copy">
-            <div class="eyebrow">PORTAL ACTION</div>
-            <h2 data-i18n="ctaTitle">Bắt đầu từ HOME.IAI.ONE. Đi vào đúng cửa của hệ sinh thái.</h2>
+            <div class="eyebrow" data-i18n="ctaEyebrow">NEXT ACTION</div>
+            <h2 data-i18n="ctaTitle">Hiểu đúng hệ trước. Sau đó mới đi vào đúng lớp.</h2>
             <p data-i18n="ctaText">
-              Nếu cần orchestration và automation, vào Flow. Nếu cần intelligence system, vào LifeCode.
-              Nếu cần community layer, mở Nhà Chung hoặc Muôn Nơi.
+              Nếu cần gốc định nghĩa, đọc IAI.ONE. Nếu cần bản đồ hệ, dùng Home. Nếu cần platform orchestration, mở Flow.
             </p>
           </div>
 
           <div class="cta-actions">
-            <a class="button button-primary" href="https://flow.iai.one/" target="_blank" rel="noopener">
+            <a class="button button-primary" href="https://iai.one/" target="_blank" rel="noopener">
+              Read Charter
+            </a>
+            <a class="button button-secondary" href="https://flow.iai.one/" target="_blank" rel="noopener">
               Open Flow
             </a>
-            <a class="button button-secondary" href="https://iai.one/" target="_blank" rel="noopener">
-              Explore IAI.ONE
-            </a>
-            <a class="button button-ghost" href="#platforms">
-              View Platforms
+            <a class="button button-ghost" href="./about.html">
+              About IAI
             </a>
           </div>
         </div>
@@ -561,43 +504,40 @@
           <span class="logo-mark"></span>
           <strong>IAI.ONE</strong>
         </div>
-        <p>
-          HOME.IAI.ONE là portal trung tâm của hệ sinh thái IAI, kết nối kiến trúc AGI, hệ workflow Flow,
-          các platform trí tuệ, cộng đồng và các lớp nghiên cứu tương lai.
+        <p data-i18n="footerLead">
+          HOME.IAI.ONE là portal trung tâm của toàn bộ hệ IAI, nơi Charter, Ecosystem, Community và Infrastructure được nhìn thấy như một cấu trúc rõ ràng thay vì một tập hợp mơ hồ.
         </p>
         <div class="footer-meta">
-          <span>Human Intelligence Infrastructure</span>
+          <span data-i18n="footerMeta">System Portal for Responsible Co-Existence</span>
         </div>
       </div>
 
       <div class="footer-col">
-        <h4>Portal</h4>
+        <h4>System</h4>
         <nav>
-          <a href="#architecture">Architecture</a>
+          <a href="#layers">Layers</a>
+          <a href="#paths">Paths</a>
           <a href="#platforms">Platforms</a>
-          <a href="#flow-focus">IAI Flow</a>
-          <a href="#universe">Knowledge Universe</a>
-          <a href="#mission">Mission</a>
+          <a href="#ecosystem">Map</a>
+          <a href="#boundaries">Boundaries</a>
         </nav>
       </div>
 
       <div class="footer-col">
-        <h4>Platforms</h4>
+        <h4>Domains</h4>
         <nav>
+          <a href="https://iai.one/" target="_blank" rel="noopener">IAI.ONE</a>
           <a href="https://flow.iai.one/" target="_blank" rel="noopener">Flow</a>
-          <a href="https://lifecode.iai.one/" target="_blank" rel="noopener">LifeCode</a>
-          <a href="https://nhachung.org/" target="_blank" rel="noopener">Nhà Chung</a>
-          <a href="https://muonnoi.org/" target="_blank" rel="noopener">Muôn Nơi</a>
-          <a href="https://duongsaotoasang.com/" target="_blank" rel="noopener">DSTS</a>
+          <a href="./about.html">About</a>
         </nav>
       </div>
 
       <div class="footer-col">
-        <h4>Founder</h4>
+        <h4>Direction</h4>
         <nav>
           <a href="https://tranhatam.com/" target="_blank" rel="noopener">Trần Hà Tâm</a>
-          <a href="https://iai.one/" target="_blank" rel="noopener">IAI.ONE</a>
           <a href="https://github.com/tranhatam-collab/IAI.ONE" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://home.iai.one/" target="_blank" rel="noopener">HOME</a>
         </nav>
       </div>
     </div>
