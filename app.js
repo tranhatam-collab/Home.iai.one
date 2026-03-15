@@ -81,9 +81,7 @@
     if ((body.dataset.page || "").toLowerCase() !== "home") return;
 
     const title =
-      lang === "en"
-        ? "HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure"
-        : "HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure";
+      "HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure";
 
     const description =
       lang === "en"
@@ -110,18 +108,18 @@
     header.classList.toggle("is-scrolled", window.scrollY > 10);
   }
 
-  function toggleMenu(force) {
+  function toggleMenu(forceState) {
     if (!menuToggle || !mobileMenu) return;
 
-    const shouldOpen =
-      typeof force === "boolean"
-        ? force
+    const isOpen =
+      typeof forceState === "boolean"
+        ? forceState
         : !mobileMenu.classList.contains("is-open");
 
-    mobileMenu.classList.toggle("is-open", shouldOpen);
-    menuToggle.classList.toggle("is-active", shouldOpen);
-    menuToggle.setAttribute("aria-expanded", String(shouldOpen));
-    body.style.overflow = shouldOpen ? "hidden" : "";
+    mobileMenu.classList.toggle("is-open", isOpen);
+    menuToggle.classList.toggle("is-active", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    body.style.overflow = isOpen ? "hidden" : "";
   }
 
   function initMenu() {
@@ -138,37 +136,16 @@
     });
 
     window.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        toggleMenu(false);
-      }
+      if (event.key === "Escape") toggleMenu(false);
     });
 
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 860) {
-        toggleMenu(false);
-      }
-    });
-  }
-
-  function initLanguage() {
-    setLang(getSavedLang());
-
-    if (!langToggle) return;
-
-    langToggle.addEventListener("click", function () {
-      const next = getSavedLang() === "vi" ? "en" : "vi";
-      setLang(next);
-    });
-  }
-
-  function initYear() {
-    document.querySelectorAll("#year").forEach((el) => {
-      el.textContent = String(new Date().getFullYear());
+      if (window.innerWidth > 860) toggleMenu(false);
     });
   }
 
   function animateCounter(el) {
-    const target = Number(el.getAttribute("data-count") || "0");
+    const target = Number(el.getAttribute("data-count"));
     if (!Number.isFinite(target)) return;
 
     const duration = 1200;
@@ -177,8 +154,14 @@
     function frame(now) {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = String(Math.round(target * eased));
-      if (progress < 1) requestAnimationFrame(frame);
+      const value = Math.round(target * eased);
+      el.textContent = String(value);
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        el.textContent = String(target);
+      }
     }
 
     requestAnimationFrame(frame);
@@ -194,14 +177,17 @@
     }
 
     const observer = new IntersectionObserver(
-      (entries, obs) => {
+      function (entries, obs) {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           animateCounter(entry.target);
           obs.unobserve(entry.target);
         });
       },
-      { threshold: 0.45 }
+      {
+        threshold: 0.35,
+        rootMargin: "0px 0px -10% 0px"
+      }
     );
 
     counters.forEach((counter) => observer.observe(counter));
@@ -217,7 +203,7 @@
     }
 
     const observer = new IntersectionObserver(
-      (entries, obs) => {
+      function (entries, obs) {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           entry.target.classList.add("is-visible");
@@ -248,7 +234,7 @@
         const top = target.getBoundingClientRect().top + window.scrollY - headerOffset - 10;
 
         window.scrollTo({
-          top: top,
+          top,
           behavior: "smooth"
         });
 
@@ -259,8 +245,9 @@
     });
   }
 
-  function initActiveDesktopNav() {
+  function initActiveNav() {
     const currentPath = window.location.pathname.split("/").pop() || "index.html";
+
     document.querySelectorAll(".desktop-nav a, .mobile-nav a").forEach((link) => {
       const href = link.getAttribute("href");
       if (!href) return;
@@ -275,7 +262,7 @@
     });
   }
 
-  function initExternalButtonsSafety() {
+  function initExternalLinks() {
     document.querySelectorAll('a[target="_blank"]').forEach((link) => {
       const rel = (link.getAttribute("rel") || "").trim();
       if (!/\bnoopener\b/.test(rel)) {
@@ -284,15 +271,32 @@
     });
   }
 
+  function initYear() {
+    document.querySelectorAll("#year").forEach((el) => {
+      el.textContent = String(new Date().getFullYear());
+    });
+  }
+
+  function initLanguage() {
+    setLang(getSavedLang());
+
+    if (!langToggle) return;
+
+    langToggle.addEventListener("click", function () {
+      const next = getSavedLang() === "vi" ? "en" : "vi";
+      setLang(next);
+    });
+  }
+
   function boot() {
     initLanguage();
     initMenu();
-    initYear();
-    initCounters();
     initReveal();
+    initCounters();
     initInternalAnchorOffset();
-    initActiveDesktopNav();
-    initExternalButtonsSafety();
+    initActiveNav();
+    initExternalLinks();
+    initYear();
     updateHeaderState();
 
     window.addEventListener("scroll", updateHeaderState, { passive: true });
