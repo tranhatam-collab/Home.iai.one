@@ -3,52 +3,51 @@
 
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>IAI.ONE — Human Intelligence Infrastructure</title>
 
-<meta name="description" content="IAI.ONE là hạ tầng trí tuệ con người cho thời đại trí tuệ nhân tạo. Hệ sinh thái công cụ AGI, tri thức và cộng đồng giúp cá nhân và xã hội phát triển bền vững.">
+<meta name="description" content="IAI.ONE là hạ tầng tri thức và công cụ cho kỷ nguyên trí tuệ nhân tạo, giúp con người hiểu bản thân, ra quyết định tốt hơn và xây dựng cộng đồng bền vững." />
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<script src="lang/vi.js"></script>
-<script src="lang/en.js"></script>
+<link rel="icon" href="/assets/logo/favicon.png">
 
 </head>
+
+
 
 <body>
 
 
 
-<header class="site-header">
+<!-- ====================================================== -->
+<!-- NAVBAR -->
+<!-- ====================================================== -->
 
-<div class="header-inner">
+<header class="nav">
+
+<div class="nav-inner">
 
 <div class="logo">
-
-IAI.ONE
-
+<a href="/">IAI.ONE</a>
 </div>
 
-<nav class="main-nav">
+<nav class="menu">
 
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-
-<a href="https://flow.iai.one">Flow</a>
-<a href="https://lifecode.iai.one">LifeCode</a>
-<a href="https://community.iai.one">Community</a>
+<a href="#about">About</a>
+<a href="#ecosystem">Ecosystem</a>
+<a href="#architecture">AGI</a>
+<a href="#knowledge">Knowledge</a>
+<a href="#launchpad">Apps</a>
 
 </nav>
 
-<div class="lang-switch">
+<div class="lang">
 
-<a onclick="setLang('vi')">VI</a>
-<a onclick="setLang('en')">EN</a>
+<a href="/index.html">VI</a>
+<a href="/en/index.html">EN</a>
 
 </div>
 
@@ -58,180 +57,168 @@ IAI.ONE
 
 
 
+<!-- ====================================================== -->
+<!-- HERO -->
+<!-- ====================================================== -->
+
 <section class="hero">
 
-<div class="hero-inner">
+<h1>
 
-<h1 data-lang="hero_title">
-
-Human Intelligence Infrastructure
+IAI.ONE
 
 </h1>
 
-<p data-lang="hero_desc">
+<p>
 
-Một hệ sinh thái trí tuệ cho thời đại AI.
+Hạ tầng trí tuệ cho một nền văn minh bền vững.
 
 </p>
 
-<div class="hero-buttons">
+<p>
 
-<a class="btn-primary" href="https://flow.iai.one">
+Infrastructure for Human Intelligence in the AI Era.
 
-IAI Flow
-
-</a>
-
-<a class="btn-secondary" href="about.html">
-
-About System
-
-</a>
-
-</div>
-
-
-<img
-src="assets/images/hero.jpg"
-alt="IAI ecosystem"
-class="hero-image"
-/>
-
-</div>
+</p>
 
 </section>
 
 
 
-<section class="section ecosystem">
+<!-- ====================================================== -->
+<!-- ABOUT -->
+<!-- ====================================================== -->
 
-<div class="container">
+<section id="about" class="section">
 
-<div class="section-header">
+<h2>
 
-<h2 data-lang="ecosystem_title">
-
-IAI Ecosystem
+About IAI.ONE
 
 </h2>
 
 <p>
 
-Hệ sinh thái công cụ, tri thức và cộng đồng được xây dựng cho tương lai của trí tuệ con người.
+IAI.ONE là một hệ sinh thái nền tảng được xây dựng để giúp con người định hướng trong thời đại trí tuệ nhân tạo.
 
 </p>
 
-</div>
+<p>
 
+IAI.ONE is an ecosystem of platforms designed to help humanity navigate the era of artificial intelligence.
 
-<div id="ecosystem3d"></div>
+</p>
 
+<p>
 
-<img
-src="assets/images/ecosystem.jpg"
-alt="IAI ecosystem"
-class="section-image"
-/>
+Mục tiêu của hệ thống là:
 
-</div>
+</p>
+
+<ul>
+
+<li>hiểu bản thân</li>
+<li>ra quyết định tốt hơn</li>
+<li>xây dựng cộng đồng</li>
+<li>phát triển kinh tế bền vững</li>
+
+</ul>
 
 </section>
 
 
 
-<section class="section architecture">
+<!-- ====================================================== -->
+<!-- ECOSYSTEM MAP -->
+<!-- ====================================================== -->
 
-<div class="container">
+<section id="ecosystem" class="section">
 
-<div class="section-header">
+<h2>
 
-<h2 data-lang="architecture_title">
+IAI Ecosystem Map
+
+</h2>
+
+<div id="ecosystemMap"></div>
+
+</section>
+
+
+
+<!-- ====================================================== -->
+<!-- AGI ARCHITECTURE -->
+<!-- ====================================================== -->
+
+<section id="architecture" class="section">
+
+<h2>
 
 AGI Architecture
 
 </h2>
 
-</div>
+<p>
 
-<div id="agi-graph"></div>
+IAI.ONE được thiết kế như một hạ tầng trí tuệ nhiều tầng.
 
-</div>
-
-</section>
-
-
-
-<section class="section platforms">
-
-<div class="container">
-
-<div class="section-header">
-
-<h2 data-lang="platforms_title">
-
-Platforms
-
-</h2>
-
-</div>
-
-<div class="launchpad-grid">
-
-<a href="https://flow.iai.one" class="launch-icon">
-
-IAI Flow
-
-</a>
-
-<a href="https://lifecode.iai.one" class="launch-icon">
-
-LifeCode
-
-</a>
-
-<a href="https://research.iai.one" class="launch-icon">
-
-Research
-
-</a>
-
-<a href="https://community.iai.one" class="launch-icon">
-
-Community
-
-</a>
-
-<a href="https://projects.iai.one" class="launch-icon">
-
-Projects
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section ecosystem-platforms">
-
-<div class="container">
-
-<div class="section-header">
-
-<h2>Ecosystem Platforms</h2>
+</p>
 
 <p>
 
-Các nền tảng đang hoạt động trong hệ sinh thái.
+The system integrates multiple layers of intelligence.
+
+</p>
+
+<div class="architecture">
+
+<div class="layer">
+
+<h3>Data Layer</h3>
+
+<p>
+
+Dữ liệu con người, xã hội và hành vi.
 
 </p>
 
 </div>
 
-<div id="platforms-auto"></div>
+<div class="layer">
+
+<h3>Knowledge Layer</h3>
+
+<p>
+
+Tri thức, học tập và phân tích.
+
+</p>
+
+</div>
+
+<div class="layer">
+
+<h3>Decision Layer</h3>
+
+<p>
+
+AI hỗ trợ quyết định.
+
+</p>
+
+</div>
+
+<div class="layer">
+
+<h3>Community Layer</h3>
+
+<p>
+
+Hệ sinh thái cộng đồng.
+
+</p>
+
+</div>
 
 </div>
 
@@ -239,27 +226,73 @@ Các nền tảng đang hoạt động trong hệ sinh thái.
 
 
 
-<section class="section civilization">
+<!-- ====================================================== -->
+<!-- KNOWLEDGE UNIVERSE -->
+<!-- ====================================================== -->
 
-<div class="container">
+<section id="knowledge" class="section">
 
-<div class="section-header">
+<h2>
 
-<h2 data-lang="civilization_title">
+IAI Global Knowledge Universe
+
+</h2>
+
+<div id="knowledgeUniverse"></div>
+
+</section>
+
+
+
+<!-- ====================================================== -->
+<!-- CIVILIZATION OS -->
+<!-- ====================================================== -->
+
+<section id="civilization" class="section">
+
+<h2>
 
 Civilization Operating System
 
 </h2>
 
+<p>
+
+IAI.ONE không chỉ là công cụ.
+
+</p>
+
+<p>
+
+Đây là một hệ điều hành cho sự phát triển của xã hội.
+
+</p>
+
+<div class="civilization">
+
+<div>
+
+<h3>Education</h3>
+
 </div>
 
-<canvas id="civilization-graph"></canvas>
+<div>
 
-<img
-src="assets/images/civilization.jpg"
-alt="Civilization system"
-class="section-image"
-/>
+<h3>Economy</h3>
+
+</div>
+
+<div>
+
+<h3>Community</h3>
+
+</div>
+
+<div>
+
+<h3>Governance</h3>
+
+</div>
 
 </div>
 
@@ -267,39 +300,137 @@ class="section-image"
 
 
 
-<section class="section philosophy">
+<!-- ====================================================== -->
+<!-- APP LAUNCHPAD -->
+<!-- ====================================================== -->
 
-<div class="container">
+<section id="launchpad" class="section">
 
-<div class="section-header">
+<h2>
 
-<h2 data-lang="philosophy_title">
-
-Philosophy
+Applications
 
 </h2>
 
+<div id="appLaunchpad" class="launchpad"></div>
+
+</section>
+
+
+
+<!-- ====================================================== -->
+<!-- SUBDOMAIN DISCOVERY -->
+<!-- ====================================================== -->
+
+<section class="section">
+
+<h2>
+
+Platforms
+
+</h2>
+
+<div id="subdomainList"></div>
+
+</section>
+
+
+
+<!-- ====================================================== -->
+<!-- PROJECTS -->
+<!-- ====================================================== -->
+
+<section class="section">
+
+<h2>
+
+Core Platforms
+
+</h2>
+
+<div class="platforms">
+
+<div class="platform">
+
+<h3>LifeCode</h3>
+
+<p>
+
+Hệ thống phân tích cấu trúc đời người.
+
+</p>
+
+<a href="https://lifecode.iai.one">Visit</a>
+
 </div>
 
-<div class="philosophy-content">
+<div class="platform">
+
+<h3>IAI Flow</h3>
 
 <p>
 
-IAI.ONE được xây dựng để kết nối trí tuệ con người và trí tuệ nhân tạo.
+Nền tảng AI orchestration.
 
 </p>
+
+<a href="https://flow.iai.one">Visit</a>
+
+</div>
+
+<div class="platform">
+
+<h3>Nhà Chung</h3>
 
 <p>
 
-Hệ thống này không thay thế con người mà tăng cường khả năng nhận thức và ra quyết định.
+Cộng đồng sống và phát triển bền vững.
 
 </p>
+
+<a href="https://nhachung.org">Visit</a>
+
+</div>
+
+<div class="platform">
+
+<h3>Muốn Nói</h3>
 
 <p>
 
-Mục tiêu là xây dựng một nền kinh tế và cộng đồng dựa trên tri thức và hợp tác.
+Không gian đối thoại xã hội.
 
 </p>
+
+<a href="https://muonnoi.org">Visit</a>
+
+</div>
+
+<div class="platform">
+
+<h3>Đường Sao Tỏa Sáng</h3>
+
+<p>
+
+Nền tảng tri thức và câu chuyện.
+
+</p>
+
+<a href="https://duongsaotoasang.com">Visit</a>
+
+</div>
+
+<div class="platform">
+
+<h3>Trần Hà Tâm</h3>
+
+<p>
+
+Trang cá nhân và triết lý.
+
+</p>
+
+<a href="https://tranhatam.com">Visit</a>
 
 </div>
 
@@ -309,13 +440,45 @@ Mục tiêu là xây dựng một nền kinh tế và cộng đồng dựa trên
 
 
 
-<footer class="site-footer">
+<!-- ====================================================== -->
+<!-- VISION -->
+<!-- ====================================================== -->
 
-<div class="footer-logo">
+<section class="section">
+
+<h2>
+
+Vision
+
+</h2>
+
+<p>
+
+Một nền văn minh nơi con người và trí tuệ nhân tạo cùng phát triển.
+
+</p>
+
+<p>
+
+A civilization where humans and artificial intelligence evolve together.
+
+</p>
+
+</section>
+
+
+
+<!-- ====================================================== -->
+<!-- FOOTER -->
+<!-- ====================================================== -->
+
+<footer class="footer">
+
+<p>
 
 IAI.ONE
 
-</div>
+</p>
 
 <p>
 
@@ -327,17 +490,19 @@ Human Intelligence Infrastructure
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<!-- ====================================================== -->
+<!-- SCRIPTS -->
+<!-- ====================================================== -->
 
-<script src="https://unpkg.com/force-graph"></script>
+<script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
 
-<script src="js/app.js"></script>
-<script src="js/ecosystem3d.js"></script>
-<script src="js/agi-graph.js"></script>
-<script src="js/subdomains.js"></script>
-<script src="js/civilization-graph.js"></script>
+<script src="/assets/ecosystem-map.js"></script>
 
+<script src="/assets/knowledge-universe.js"></script>
+
+<script src="/assets/launchpad.js"></script>
+
+<script src="/assets/subdomain-discovery.js"></script>
 
 </body>
-
 </html>
