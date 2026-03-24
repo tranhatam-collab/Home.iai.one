@@ -4,6 +4,14 @@
   const STORAGE_KEY = "home_iai_lang";
   const doc = document.documentElement;
   const body = document.body;
+  const DOCS_PORTAL = {
+    hub: "https://docs.iai.one/",
+    ecosystem: "https://docs.iai.one/ecosystem/",
+    architecture: "https://docs.iai.one/architecture/",
+    flow: "https://docs.iai.one/flow/",
+    app: "https://docs.iai.one/app/",
+    mail: "https://docs.iai.one/mail/"
+  };
 
   const i18n = {
     vi: {
@@ -75,6 +83,7 @@
     });
 
     updateHomeMeta(nextLang);
+    syncDocsSupport(nextLang);
   }
 
   function updateHomeMeta(lang) {
@@ -269,6 +278,119 @@
         link.setAttribute("rel", (rel ? rel + " " : "") + "noopener");
       }
     });
+  }
+
+  function syncDocsSupport(lang) {
+    upsertNavLink(document.querySelector(".desktop-nav"), {
+      key: "desktop-docs",
+      href: DOCS_PORTAL.ecosystem,
+      label: lang === "en" ? "Docs Hub" : "Docs Hub"
+    });
+
+    upsertNavLink(document.querySelector(".mobile-nav"), {
+      key: "mobile-docs",
+      href: DOCS_PORTAL.ecosystem,
+      label: lang === "en" ? "Docs Hub" : "Docs Hub"
+    });
+
+    upsertHeaderDocsAction(lang);
+    upsertHeroDocsAction(lang);
+    syncFooterDocsLinks(lang);
+  }
+
+  function upsertNavLink(container, options) {
+    if (!container || !options) return;
+
+    let link = container.querySelector(`[data-docs-slot="${options.key}"]`);
+    if (!link) {
+      link = document.createElement("a");
+      link.setAttribute("data-docs-slot", options.key);
+      container.appendChild(link);
+    }
+
+    link.href = options.href;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = options.label;
+  }
+
+  function upsertHeaderDocsAction(lang) {
+    const container = document.querySelector(".header-actions");
+    const menuButton = document.querySelector("[data-menu-toggle]");
+    if (!container) return;
+
+    let link = container.querySelector('[data-docs-slot="header-docs"]');
+    if (!link) {
+      link = document.createElement("a");
+      link.className = "button button-ghost desktop-only";
+      link.setAttribute("data-docs-slot", "header-docs");
+      if (menuButton) {
+        container.insertBefore(link, menuButton);
+      } else {
+        container.appendChild(link);
+      }
+    }
+
+    link.href = DOCS_PORTAL.hub;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = lang === "en" ? "Open Docs" : "Mở Docs";
+  }
+
+  function upsertHeroDocsAction(lang) {
+    if ((body.dataset.page || "").toLowerCase() !== "home") return;
+
+    const actions = document.querySelector(".hero-actions");
+    if (!actions) return;
+
+    let link = actions.querySelector('[data-docs-slot="hero-docs"]');
+    if (!link) {
+      link = document.createElement("a");
+      link.className = "button button-ghost";
+      link.setAttribute("data-docs-slot", "hero-docs");
+      actions.appendChild(link);
+    }
+
+    link.href = DOCS_PORTAL.ecosystem;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = lang === "en" ? "Explore Docs" : "Khám phá Docs";
+  }
+
+  function syncFooterDocsLinks(lang) {
+    document.querySelectorAll(".footer-bottom .footer-links").forEach((group) => {
+      upsertFooterLink(group, {
+        key: "footer-docs",
+        href: DOCS_PORTAL.hub,
+        label: "docs.iai.one"
+      });
+      upsertFooterLink(group, {
+        key: "footer-app",
+        href: DOCS_PORTAL.app,
+        label: lang === "en" ? "app docs" : "app docs"
+      });
+      upsertFooterLink(group, {
+        key: "footer-mail",
+        href: DOCS_PORTAL.mail,
+        label: lang === "en" ? "mail docs" : "mail docs"
+      });
+    });
+  }
+
+  function upsertFooterLink(container, options) {
+    if (!container || !options) return;
+
+    let link = container.querySelector(`[data-docs-slot="${options.key}"]`);
+    if (!link) {
+      link = document.createElement("a");
+      link.setAttribute("data-docs-slot", options.key);
+      container.appendChild(link);
+    }
+
+    link.href = options.href;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = options.label;
   }
 
   function initYear() {
