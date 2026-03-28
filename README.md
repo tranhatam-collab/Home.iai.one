@@ -8,7 +8,12 @@ It does not replace the Charter, does not operate ecosystems, and does not act a
 
 - `iai.one` is the Charter layer
 - `home.iai.one` is the Portal layer
-- `flow.iai.one` is the Infrastructure flagship
+- `docs.iai.one` is the knowledge hub
+- `app.iai.one` is the operator workspace
+- `flow.iai.one` is the workflow and runtime flagship
+- `api.iai.one` and `api.flow.iai.one` are the service interface layer
+- `dash.iai.one`, `developer.iai.one`, `noos.iai.one`, and `cios.iai.one` are specialized system surfaces
+- `mail.iai.one` is the delivery and communication layer
 
 ## Purpose of Home
 
@@ -19,6 +24,7 @@ HOME exists to make the wider IAI system understandable through:
 - ecosystem mapping
 - correct entry paths
 - visible boundaries
+- routing into docs as the canonical explanation layer
 
 ## Included Files
 

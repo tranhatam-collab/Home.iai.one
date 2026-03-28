@@ -6,11 +6,21 @@
   const body = document.body;
   const DOCS_PORTAL = {
     hub: "https://docs.iai.one/",
+    home: "https://docs.iai.one/home-surface/",
+    registry: "https://docs.iai.one/service-registry/",
     ecosystem: "https://docs.iai.one/ecosystem/",
     architecture: "https://docs.iai.one/architecture/",
+    gettingStarted: "https://docs.iai.one/getting-started/",
+    iaiOne: "https://docs.iai.one/iai-one/",
+    owner: "https://docs.iai.one/owner-checklist/",
     flow: "https://docs.iai.one/flow/",
     app: "https://docs.iai.one/app/",
-    mail: "https://docs.iai.one/mail/"
+    mail: "https://docs.iai.one/mail/",
+    dash: "https://docs.iai.one/dash/",
+    developer: "https://docs.iai.one/developer/",
+    api: "https://docs.iai.one/api/",
+    noos: "https://docs.iai.one/noos/",
+    cios: "https://docs.iai.one/cios/"
   };
 
   const i18n = {
@@ -18,29 +28,29 @@
       heroEyebrow: "SYSTEM PORTAL",
       heroTitle: "Cổng điều hướng trung tâm cho toàn bộ hệ IAI.",
       heroLead:
-        "HOME.IAI.ONE không thay thế Charter, không vận hành ecosystem và không đóng vai trò platform. Đây là bản đồ hệ thống giúp người dùng nhìn thấy rõ Charter, Ecosystem, Community và Infrastructure của IAI trước khi đi vào chi tiết.",
-      heroPrimary: "Hiểu cấu trúc hệ",
+        "HOME.IAI.ONE là portal để nhìn thấy toàn bộ hệ IAI theo đúng lớp: Charter ở iai.one, portal ở home, knowledge hub ở docs, product surfaces như app và flow, API layers, strategic layers như NOOS và CIOS, cùng các hạ tầng delivery và automation đang được theo dõi.",
+      heroPrimary: "Xem toàn hệ",
       heroSecondary: "Đọc Charter",
-      metric1: "Lớp hệ thống cốt lõi",
-      metric2: "Vai trò domain trung tâm",
-      metric3: "Đường đi vào hệ",
-      statusLabel1: "Root",
-      statusLabel2: "Primary Link",
-      statusLabel3: "Flagship Platform"
+      metric1: "Vùng hệ thống chính",
+      metric2: "Surface đang được theo dõi",
+      metric3: "Cửa vào ưu tiên",
+      statusLabel1: "Role",
+      statusLabel2: "Knowledge Hub",
+      statusLabel3: "Runtime Flagship"
     },
     en: {
       heroEyebrow: "SYSTEM PORTAL",
       heroTitle: "The central navigation gateway for the full IAI system.",
       heroLead:
-        "HOME.IAI.ONE does not replace the Charter, does not operate the ecosystem, and is not itself a platform. It is a system map that helps people clearly see the Charter, Ecosystem, Community, and Infrastructure of IAI before entering details.",
-      heroPrimary: "Understand the system",
+        "HOME.IAI.ONE is the portal for seeing the full IAI system in the right layers: Charter at iai.one, portal routing at home, the knowledge hub at docs, product surfaces such as app and flow, API layers, strategic layers such as NOOS and CIOS, and the delivery and automation infrastructure being tracked.",
+      heroPrimary: "See the full system",
       heroSecondary: "Read the Charter",
-      metric1: "Core system layers",
-      metric2: "Central domain roles",
-      metric3: "Entry paths",
-      statusLabel1: "Root",
-      statusLabel2: "Primary Link",
-      statusLabel3: "Flagship Platform"
+      metric1: "Primary system zones",
+      metric2: "Tracked surfaces",
+      metric3: "Priority entry paths",
+      statusLabel1: "Role",
+      statusLabel2: "Knowledge Hub",
+      statusLabel3: "Runtime Flagship"
     }
   };
 
@@ -89,13 +99,12 @@
   function updateHomeMeta(lang) {
     if ((body.dataset.page || "").toLowerCase() !== "home") return;
 
-    const title =
-      "HOME.IAI.ONE — System Portal for Charter, Ecosystem, Community and Infrastructure";
+    const title = "HOME.IAI.ONE — Portal for the Full IAI System";
 
     const description =
       lang === "en"
-        ? "HOME.IAI.ONE is the central system portal of IAI, connecting Charter, Ecosystem, Community, and Infrastructure into a clear map with the right entry paths."
-        : "HOME.IAI.ONE là system portal trung tâm của toàn bộ hệ IAI: nơi kết nối Charter, Ecosystem, Community và Infrastructure thành một bản đồ rõ ràng, có trách nhiệm và có thể đi vào đúng cửa.";
+        ? "HOME.IAI.ONE is the portal for the full IAI system, routing people across charter, docs, app, flow, APIs, dashboard, developer, NOOS, CIOS, mail, and planned infrastructure surfaces."
+        : "HOME.IAI.ONE là portal cho toàn bộ hệ IAI, điều hướng người dùng qua charter, docs, app, flow, API, dashboard, developer, NOOS, CIOS, mail và các surface hạ tầng đang được theo dõi.";
 
     document.title = title;
 
@@ -283,19 +292,44 @@
   function syncDocsSupport(lang) {
     upsertNavLink(document.querySelector(".desktop-nav"), {
       key: "desktop-docs",
-      href: DOCS_PORTAL.ecosystem,
-      label: lang === "en" ? "Docs Hub" : "Docs Hub"
+      href: DOCS_PORTAL.hub,
+      label: lang === "en" ? "Docs" : "Docs"
     });
 
     upsertNavLink(document.querySelector(".mobile-nav"), {
       key: "mobile-docs",
-      href: DOCS_PORTAL.ecosystem,
-      label: lang === "en" ? "Docs Hub" : "Docs Hub"
+      href: DOCS_PORTAL.hub,
+      label: lang === "en" ? "Docs" : "Docs"
     });
 
     upsertHeaderDocsAction(lang);
     upsertHeroDocsAction(lang);
     syncFooterDocsLinks(lang);
+  }
+
+  function getCurrentPage() {
+    return (body.dataset.page || "").toLowerCase();
+  }
+
+  function getPrimaryDocsUrl() {
+    switch (getCurrentPage()) {
+      case "home":
+        return DOCS_PORTAL.home;
+      case "layers":
+        return DOCS_PORTAL.architecture;
+      case "paths":
+        return DOCS_PORTAL.gettingStarted;
+      case "platforms":
+        return DOCS_PORTAL.registry;
+      case "ecosystem":
+        return DOCS_PORTAL.ecosystem;
+      case "boundaries":
+        return DOCS_PORTAL.owner;
+      case "about":
+        return DOCS_PORTAL.iaiOne;
+      default:
+        return DOCS_PORTAL.hub;
+    }
   }
 
   function upsertNavLink(container, options) {
@@ -331,10 +365,17 @@
       }
     }
 
-    link.href = DOCS_PORTAL.hub;
+    link.href = getPrimaryDocsUrl();
     link.target = "_blank";
     link.rel = "noopener";
-    link.textContent = lang === "en" ? "Open Docs" : "Mở Docs";
+    link.textContent =
+      getCurrentPage() === "home"
+        ? lang === "en"
+          ? "Home Docs"
+          : "Docs của Home"
+        : lang === "en"
+          ? "Open Docs"
+          : "Mở Docs";
   }
 
   function upsertHeroDocsAction(lang) {
@@ -351,10 +392,10 @@
       actions.appendChild(link);
     }
 
-    link.href = DOCS_PORTAL.ecosystem;
+    link.href = DOCS_PORTAL.registry;
     link.target = "_blank";
     link.rel = "noopener";
-    link.textContent = lang === "en" ? "Explore Docs" : "Khám phá Docs";
+    link.textContent = lang === "en" ? "Open System Docs" : "Mở Docs toàn hệ";
   }
 
   function syncFooterDocsLinks(lang) {
@@ -365,14 +406,14 @@
         label: "docs.iai.one"
       });
       upsertFooterLink(group, {
-        key: "footer-app",
-        href: DOCS_PORTAL.app,
-        label: lang === "en" ? "app docs" : "app docs"
+        key: "footer-registry",
+        href: DOCS_PORTAL.registry,
+        label: lang === "en" ? "system registry" : "service registry"
       });
       upsertFooterLink(group, {
-        key: "footer-mail",
-        href: DOCS_PORTAL.mail,
-        label: lang === "en" ? "mail docs" : "mail docs"
+        key: "footer-owner",
+        href: DOCS_PORTAL.owner,
+        label: lang === "en" ? "owner checklist" : "owner checklist"
       });
     });
   }
