@@ -80,6 +80,28 @@ el.innerText = dict[key]
 
 })
 
+document.documentElement.lang = lang
+
+const labelText = lang === "vi" ? "🇻🇳 Tiếng Việt" : "🇺🇸 English"
+const switchAria = lang === "vi"
+  ? "Chuyển sang tiếng Anh / Switch to English"
+  : "Chuyển sang tiếng Việt / Switch to Vietnamese"
+
+document.querySelectorAll("[data-lang-label]").forEach(el => {
+  el.textContent = labelText
+})
+
+document.querySelectorAll("[data-lang-toggle]").forEach(btn => {
+  btn.setAttribute("aria-label", switchAria)
+  if(!btn.dataset.langBound){
+    btn.dataset.langBound = "true"
+    btn.addEventListener("click", () => {
+      const current = localStorage.getItem("iai_lang") || "vi"
+      setLang(current === "vi" ? "en" : "vi")
+    })
+  }
+})
+
 }
 
 
