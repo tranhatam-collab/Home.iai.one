@@ -44,3 +44,7 @@ This repository is designed for static deployment on Cloudflare Pages.
 
 - https://home.iai.one/
 - https://home.iai.one/about.html
+- https://iai.one/privacy
+- https://iai.one/terms
+- https://iai.one/support
+- https://iai.one/contact
